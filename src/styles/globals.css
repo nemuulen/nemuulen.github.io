@@ -1,0 +1,69 @@
+@custom-variant: dark (&:is(.dark *));
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+:root {
+  /* Duke Blue Color Palette */
+  --color-duke-blue: #012169;
+  --color-duke-blue-light: #00539B;
+  
+  --color-background: #FFFFFF;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+  --color-borders: #E2E8F0;
+  
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  
+  /* Typography */
+  --font-script: 'Alex Brush', cursive;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --font-size: 16px;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  --primary: #012169;
+  --primary-foreground: #ffffff;
+  --border: #E2E8F0;
+  --ring: #012169;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    line-height: 1.65;
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: ease-out;
+}
