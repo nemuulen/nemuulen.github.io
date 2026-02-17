@@ -3,13 +3,13 @@ export const personalInfo = {
   nickname: 'Nemka',
   title: 'Developer & Designer',
   bio: 'Dedicated Computation and Design student with experience in mobile application development, web development, and UI/UX design. Proven track record in securing project funding, leading technical initiatives, prototyping, and delivering user-centered solutions.',
-  email: 'nemuulen.togtbaatar@dukekunshan.edu.cn',
-  phone: '+86 157 5150 6318',
+  email: 'nt152@duke.edu',
+  phone: '+86 199 8493 0324',
   location: 'Kunshan, Jiangsu, China',
   skills: {
     programming: ['Python', 'Java', 'C++', 'HTML', 'JavaScript', 'C#'],
     frameworks: ['React Native', 'Tailwind CSS'],
-    tools: ['GitHub', 'WordPress', 'Xcode', 'Microsoft 365', 'Power BI', 'Arduino', 'Unity', 'Jupyter Notebook', 'npm'],
+    tools: ['GitHub', 'WordPress', 'Xcode', 'Microsoft 365', 'Power BI', 'Arduino IDE', 'Processing IDE', 'Unity', 'Jupyter Notebook'],
     design: ['Adobe Illustrator', 'Adobe Premiere Pro', 'Figma', 'Canva', '3D Design', 'UI/UX Design']
   }
 };
@@ -24,11 +24,16 @@ export const education = {
   coursework: [
     'Programming and Data Structures',
     'Computer Graphics',
-    'Data Visualization',
-    'Interaction and Physical Computing',
-    'Discrete Mathematics',
+    'Data Visualization and Information Aesthetics',
+    'Physical Computing and Interaction',
+    'Discrete Mathematics for CS',
     'Computer Organization',
-    'Probability and Statistics'
+    'Probability and Statistics',
+    'Digital Design',
+    'Multivariable Calculus',
+    'Creativity and Entrepreneurship', 
+    'Modelling and Predicting'
+
   ],
   honors: ['Dean\'s List (x2)']
 };
@@ -50,14 +55,14 @@ export const workExperience = [
     location: 'Ulaanbaatar, Mongolia',
     timeline: 'June 2025 - Present',
     responsibilities: [
-      'Guided over 15 students to apply for international bachelors\' programs'
+      'Guided over 20 students to apply for international bachelors\' programs'
     ]
   },
   {
     position: 'Student Website Developer & Graphic Designer',
     company: 'Duke Kunshan University Intersections Club',
     location: 'Kunshan, Jiangsu, China',
-    timeline: 'Aug 2024 - Present',
+    timeline: 'Aug 2024 - Dec 2025',
     responsibilities: [
       'Edited and updated over 20 website content and student written articles edited by professors',
       'Organized showcases to attract writers and readers, and designing posters'
@@ -179,7 +184,7 @@ export const awards = [
     organization: 'Duke Kunshan University',
     year: 'Jan 2024',
     placement: '2nd Place',
-    description: 'Emergency Response AI Application with multi-modal recognition'
+    description: 'First Aid AI Application with multi-modal recognition'
   },
   {
     title: '3rd Place - Creative Campus Marketing Competition',

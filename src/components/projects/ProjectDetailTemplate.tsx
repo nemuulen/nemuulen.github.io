@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { ArrowLeft, ExternalLink, Github, Download, FileText } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Download, FileText, X } from "lucide-react";
+import { useState } from "react";
 
 interface ProjectSection {
   title: string;
@@ -48,6 +49,8 @@ interface ProjectDetailTemplateProps {
 }
 
 export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplateProps) {
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
@@ -174,25 +177,72 @@ export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplatePro
               </h2>
               <div className="space-y-3">
                 {data.documents.map((doc, index) => (
-                  <a
-                    key={index}
-                    href={`/files/projects/${doc.fileName}`}
-                    download
-                    className="flex items-center gap-3 p-4 bg-white border border-[#E2E8F0] rounded-lg hover:border-[#012169] hover:shadow-md transition-all group"
-                  >
-                    <FileText className="w-6 h-6 text-[#012169]" />
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-[#0F172A] group-hover:text-[#012169] transition-colors">
-                        {doc.title}
-                      </h3>
-                      {doc.description && (
-                        <p className="text-sm text-[#475569]">{doc.description}</p>
-                      )}
-                    </div>
-                    <Download className="w-5 h-5 text-[#475569] group-hover:text-[#012169] transition-colors" />
-                  </a>
+                  <div key={index} className="flex items-center gap-2">
+                    <button
+                      onClick={() => setSelectedPdf(`/files/projects/${doc.fileName}`)}
+                      className="flex-1 flex items-center gap-3 p-4 bg-white border border-[#E2E8F0] rounded-lg hover:border-[#012169] hover:shadow-md transition-all group text-left"
+                    >
+                      <FileText className="w-6 h-6 text-[#012169] flex-shrink-0" />
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-[#0F172A] group-hover:text-[#012169] transition-colors">
+                          {doc.title}
+                        </h3>
+                        {doc.description && (
+                          <p className="text-sm text-[#475569]">{doc.description}</p>
+                        )}
+                      </div>
+                      <span className="text-xs bg-[#012169]/10 text-[#012169] px-2 py-1 rounded flex-shrink-0">
+                        Preview
+                      </span>
+                    </button>
+                    <a
+                      href={`/files/projects/${doc.fileName}`}
+                      download
+                      className="p-4 bg-white border border-[#E2E8F0] rounded-lg hover:border-[#012169] hover:shadow-md transition-all hover:bg-[#012169]/5"
+                      title="Download PDF"
+                    >
+                      <Download className="w-5 h-5 text-[#012169]" />
+                    </a>
+                  </div>
                 ))}
               </div>
+            </motion.div>
+          )}
+
+          {/* PDF Preview Modal */}
+          {selectedPdf && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedPdf(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] flex flex-col"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between p-4 border-b border-[#E2E8F0]">
+                  <h3 className="font-semibold text-[#012169]">PDF Preview</h3>
+                  <button
+                    onClick={() => setSelectedPdf(null)}
+                    className="p-1 hover:bg-gray-100 rounded transition-colors"
+                    aria-label="Close preview"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* PDF Viewer */}
+                <iframe
+                  src={selectedPdf}
+                  className="flex-1 w-full"
+                  title="PDF Preview"
+                />
+              </motion.div>
             </motion.div>
           )}
 

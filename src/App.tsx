@@ -18,6 +18,7 @@ import { DataVisualizationProject } from './components/projects/DataVisualizatio
 import { LorealBrandstormProject } from './components/projects/LorealBrandstormProject';
 import { ComputerGraphicsProject } from './components/projects/ComputerGraphicsProject';
 import { IotProject } from './components/projects/IotProject';
+import { DataVisHeatmapProject } from './components/projects/DataVisHeatmap';
 
 type Page = 'home' | 'projects' | 'about' | 'forfun' | 'project-detail';
 
@@ -52,6 +53,8 @@ export default function App() {
         return <ViralCampaignProject onBack={handleBackToProjects} />;
       case 'data-visualization':
         return <DataVisualizationProject onBack={handleBackToProjects} />;
+      case 'data-visualization-heatmap':
+        return <DataVisHeatmapProject onBack={handleBackToProjects} />;
       case 'loreal-brandstorm':
         return <LorealBrandstormProject onBack={handleBackToProjects} />;
       case 'computer-graphics':

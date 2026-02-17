@@ -25,17 +25,16 @@ export const projects: Project[] = [
     id: "radikal",
     title: "RADIKAL",
     description:
-      "AI-powered Chinese character learning app designed to help students master radicals through personalized learning paths and interactive story-making. Secured ¥15,000 CNY in seed funding and tested with 100+ students.",
+      "AI-powered Chinese character learning app designed to help students master radicals through personalized learning paths and interactive story-making.",
     category: "app",
     tags: [
       "React Native",
       "AI Integration",
-      "Figma",
-      "Supabase",
       "Mobile UI/UX",
+      "User research",
     ],
     image:
-      "https://images.unsplash.com/photo-1583389409210-0234eee7cdce?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/images/projects/radikal.png",
     demoUrl: "https://example.com/radikal-demo",
     githubUrl: "https://github.com/yourusername/radikal",
     featured: true,
@@ -46,7 +45,7 @@ export const projects: Project[] = [
     id: "challo",
     title: "Challo",
     description:
-      "Community building and wellbeing initiative developed as a Millennium Fellow. Selected from 60,000+ applicants worldwide. Built interactive prototypes and engaged with UN leaders on social impact project management.",
+      "Community building and wellbeing initiative developed as a Millennium Fellow, which will be further developed as a personal project. ",
     category: "app",
     tags: [
       "React Native",
@@ -54,20 +53,21 @@ export const projects: Project[] = [
       "UI/UX Design",
       "Social Impact",
       "Community Building",
+      "Web design",
     ],
     image:
-      "https://images.unsplash.com/photo-1502904550040-7534597429ae?q=80&w=2800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "/images/projects/challo.png",
     demoUrl: "https://example.com/challo-demo",
     githubUrl: "https://github.com/yourusername/challo",
-    featured: true,
+    featured: false,
     timeline: "Aug 2025 - Dec 2025",
-    award: "UN Millennium Fellowship",
+    award: "UN Millennium Fellowship Certificate",
   },
   {
     id: "aid-ai",
     title: "AID-AI",
     description:
-      "AI-powered emergency medical response application with multi-modal capabilities including image and voice recognition, and facial recognition for patient identification. Built during 24-hour hackathon.",
+      "AI-powered first aid application with multi-modal capabilities including image and voice recognition, and facial recognition for patient identification. Built during 24-hour hackathon.",
     category: "app",
     tags: [
       "AI/ML",
@@ -77,10 +77,10 @@ export const projects: Project[] = [
       "Swift",
     ],
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
+      "/images/projects/aid-ai-ss.png",
     demoUrl: "https://example.com/aid-ai-demo",
     githubUrl: "https://github.com/yourusername/aid-ai",
-    featured: true,
+    featured: false,
     timeline: "Jan 2024",
     award: "2nd Prize - DKU Hackathon",
   },
@@ -92,15 +92,15 @@ export const projects: Project[] = [
     category: "web",
     tags: [
       "WordPress",
-      "Figma",
       "Web Design",
       "Graphic Design",
-      "Brand Identity",
+      "Web Management",
+      "Canva",
     ],
     image:
       "https://sites.duke.edu/intersections/files/2023/09/a-journal-of-language-culture-and-ideas.jpg",
     demoUrl: "https://sites.duke.edu/intersections/",
-    featured: false,
+    featured: true,
     timeline: "Sep 2024 - Present",
   },
   {
@@ -113,10 +113,10 @@ export const projects: Project[] = [
       "Marketing",
       "Video Editing",
       "Adobe Premiere Pro",
-      "Campaign Management",
+      "Campaign Proposal",
     ],
     image:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop",
+      "/images/projects/campaign-ss.png",
     demoUrl: "https://example.com/campaign-showcase",
     featured: false,
     timeline: "Jun 2023 - Jul 2023",
@@ -126,8 +126,8 @@ export const projects: Project[] = [
     id: "data-visualization",
     title: "Data Visualization: International Student Flow",
     description:
-      "Analyzed survey data from DKU students using Excel and Power BI to identify trends in entrepreneurship program participation. Researched global best practices and prepared detailed reports for university leadership.",
-    category: "design",
+      "Global Student Mobility Dashboard: Visualizing International Education Flows and Economic Correlations.",
+    category: "class",
     tags: [
       "Python",
       "Data Visualization",
@@ -136,45 +136,46 @@ export const projects: Project[] = [
       "Data processing",
     ],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    demoUrl: "https://example.com/data-analysis-report",
+      "https://github.com/nemuulen/INFOSCI301_Final_Project/raw/main/301_Nemuulen_Yiqing_Poster.png",
+    demoUrl: "https://github.com/nemuulen/INFOSCI301_Final_Project",
+    featured: true,
+    timeline: "Feb 2024 - May 2024",
+  },
+  {
+    id: "data-visualization-heatmap",
+    title: "Redesigning Heat Stress Risk Maps",
+    description:
+      "Making Climate Data Actionable: Redesigning Heat Stress Risk Maps for Decision Support",
+    category: "class",
+    tags: [
+      "Python",
+      "Data Visualization",
+      "Research",
+      "Data Analysis",
+      "Data processing",
+    ],
+    image:
+      "https://github.com/nemuulen/heat_stress_data_visualization/raw/main/Project_poster.png",
+    demoUrl: "https://github.com/nemuulen/heat_stress_data_visualization",
     featured: false,
     timeline: "Feb 2024 - May 2024",
   },
   {
-    id: "loreal-brandstorm",
-    title: "L'Oréal Brandstorm 2025",
-    description:
-      "Participated in L'Oréal's global business innovation competition, developing creative solutions for real-world marketing challenges. Earned exhibition certificate for innovative approach to brand strategy.",
-    category: "design",
-    tags: [
-      "Business Innovation",
-      "Strategy",
-      "Presentation",
-      "Design Thinking",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop",
-    demoUrl: "https://example.com/loreal-presentation",
-    featured: false,
-    timeline: "2025",
-    award: "Exhibition Certificate",
-  },
-  {
     id: "computer-graphics",
-    title: "Interactive 3D Graphics",
+    title: "Code as Artistic Medium",
     description:
-      "Built interactive graphics and a game as part of Computer Graphics coursework.",
+      "Designed and developed computer graphics through the lenses of creative coding, generative design, computer-aided composition, and animation. Built interactive graphics and a game as part of Computer Graphics coursework.",
     category: "class",
     tags: [
       "Computer Graphics",
       "Processing IDE",
       "Java",
       "Game",
+      "Artistic Coding",
     ],
     image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=600&fit=crop",
-    demoUrl: "https://example.com/3d-graphics-demo",
+      "/images/projects/cs208-ss.png",
+    demoUrl: "https://bilguuns.my.canva.site/cs208-nemuulen-portfolio",
     githubUrl:
       "https://github.com/yourusername/computer-graphics",
     featured: false,
@@ -182,16 +183,15 @@ export const projects: Project[] = [
   },
   {
     id: "iot-project",
-    title: "IoT Physical Computing",
+    title: "Physical Computing (Arduino & Unity)",
     description:
-      "Designed and prototyped interactive IoT devices using Arduino for the Interaction and Physical Computing course. Created hardware-software integrations that respond to user input and environmental sensors.",
+      "Designed and prototyped interactive Arduino-based devices.",
     category: "class",
     tags: [
-      "Arduino",
-      "IoT",
-      "Hardware",
+      "Arduino UNO",
       "Sensors",
-      "Physical Computing",
+      "C##",
+      "Unity",
     ],
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",

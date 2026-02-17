@@ -21,31 +21,29 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
     // ==================== PROJECT INFO ====================
     title: "RADIKAL",
     subtitle: "AI-Powered Chinese Character Learning App",
-    coverImage: "https://images.unsplash.com/photo-1583389409210-0234eee7cdce?q=80&w=2231&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    coverImage: "images/projects/radikal.png",
     tags: ["React Native", "AI Integration", "Figma", "Supabase", "Mobile UI/UX"],
     timeline: "Apr 2025 - Present",
     funding: "¥15,000 CNY Seed Funding",
     
     // ==================== OVERVIEW ====================
-    // Replace this with your actual project description
-    overview: "Updating Soon - Detailed information about this project will be added here.",
+    overview: "Our project addresses a critical gap in the Chinese language learning market by creating a gamified, AI-enhanced application that revolutionizes character and word memorization. While existing solutions follow rigid curricula with limited content flexibility, our platform empowers independent learners to explore topics of personal interest through creative, interactive memorization techniques. By combining game mechanics with personalized AI assistance, we transform the traditionally challenging process of Chinese character acquisition into an engaging experience where learners create meaningful connections between characters, meanings, and pronunciations. This approach not only improves retention rates but promotes deeper cultural understanding and linguistic curiosity. With the growing global interest in Chinese language and culture, our solution arrives at an optimal time to capture market share in the educational technology sector." ,
     
     // ==================== CONTENT SECTIONS ====================
-    // Add custom sections here - Examples: Features, Technical Details, Challenges, Results
     sections: [
+      {
+        title: "Key words",
+        content: (
+          <div>
+            <p className="mb-4">Mandarin Chinese, character radical, personalized, gamification, Artificial intelligence</p>
+          </div>
+        ),
+      },
       {
         title: "Key Features",
         content: (
           <div>
-            <p className="mb-4">Updating Soon</p>
-            {/* Example of how to add content:
-            <ul className="list-disc list-inside space-y-2">
-              <li>AI-powered radical recognition</li>
-              <li>Personalized learning paths</li>
-              <li>Interactive story-making feature</li>
-              <li>Progress tracking and analytics</li>
-            </ul>
-            */}
+            <p className="mb-4">Our platform differentiates itself through gamified learning mechanics, personalized memory association, AI-powered assistance, and interactive character construction, functioning as a flexible supplement to existing Chinese language education. We estimate our addressable market at approximately 150 million learners worldwide.</p>
           </div>
         ),
       },
@@ -58,11 +56,8 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
         content: <p>Updating Soon</p>,
       },
     ],
-    
-    // ==================== EXTERNAL LINKS ====================
-    // Add your project links here
+
     links: [
-      // Uncomment and update when ready:
       // {
       //   label: "View Demo",
       //   url: "https://your-demo-url.com",
@@ -75,29 +70,21 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
       // },
     ],
     
-    // ==================== DOCUMENTS (PDFs, etc.) ====================
-    // Upload files to /public/files/projects/ and list them here
+
     documents: [
-      // Example:
       // {
       //   title: "Project Proposal",
       //   description: "Initial project proposal and planning document",
       //   fileName: "radikal-proposal.pdf", // File should be at /public/files/projects/radikal-proposal.pdf
       // },
-      // {
-      //   title: "User Research Report",
-      //   description: "Findings from user testing with 100+ students",
-      //   fileName: "radikal-user-research.pdf",
-      // },
+
     ],
     
     // ==================== IMAGE GALLERY ====================
     // Add more project screenshots/images here
     gallery: [
-      // Example:
       // "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop",
-      // "/images/projects/radikal-screenshot-1.png",
-      // "/images/projects/radikal-screenshot-2.png",
+      "/images/projects/radikal.png",
     ],
   };
 
