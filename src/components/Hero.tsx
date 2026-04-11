@@ -131,11 +131,13 @@ export function Hero({
               className="relative w-80 h-80 md:w-96 md:h-96"
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10">
-                <ImageWithFallback
-                  src="https://media.licdn.com/dms/image/v2/D4E35AQHp8bZpK5HzvA/profile-framedphoto-shrink_800_800/B4EZxqbHWhIMAg-/0/1771312019130?e=1776510000&v=beta&t=DOmuIpnCL5Lt5k9EmyhMvdBYdMRizV4bvGkqYT5R0Vc"
+                <img
+                  src="images/TOGTBAATAR_Nemuulen_Photo.jpeg"
                   alt="Nemuulen Togtbaatar"
                   className="w-full h-full object-cover"
                 />
+              </div>
+
               </div>
             </motion.div>
 
