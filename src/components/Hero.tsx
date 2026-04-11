@@ -132,7 +132,7 @@ export function Hero({
             >
               <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10">
                 <ImageWithFallback
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQFcseZmKYvHbQ/profile-displayphoto-shrink_800_800/B4EZWhvh_lG0Ac-/0/1742175412122?e=1772064000&v=beta&t=vqjowLdrZ6gLBm8Un4QqzIALfRpI2Up7gh8njd7ATUM"
+                  src="https://media.licdn.com/dms/image/v2/D4E35AQHp8bZpK5HzvA/profile-framedphoto-shrink_800_800/B4EZxqbHWhIMAg-/0/1771312019130?e=1776510000&v=beta&t=DOmuIpnCL5Lt5k9EmyhMvdBYdMRizV4bvGkqYT5R0Vc"
                   alt="Nemuulen Togtbaatar"
                   className="w-full h-full object-cover"
                 />
