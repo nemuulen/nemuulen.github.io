@@ -44,8 +44,8 @@ export function About() {
           </div>
 
           <motion.a
-            href="/files/Nemuulen_Togtbaatar_CV.pdf"
-            download
+            href="/files/Nemuulen_gradCV.docx"
+            download="Nemuulen_Togtbaatar_CV.docx"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -228,12 +228,13 @@ export function About() {
             Skills & Expertise
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { category: 'Programming', skills: personalInfo.skills.programming },
               { category: 'Frameworks', skills: personalInfo.skills.frameworks },
               { category: 'Design', skills: personalInfo.skills.design },
-              { category: 'Tools', skills: personalInfo.skills.tools }
+              { category: 'Tools', skills: personalInfo.skills.tools },
+              { category: 'Languages', skills: personalInfo.skills.languages }
             ].map((skillGroup) => (
               <div key={skillGroup.category}>
                 <p className="text-xs font-semibold text-[#94A3B8] mb-2">{skillGroup.category}</p>

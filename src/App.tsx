@@ -19,6 +19,11 @@ import { LorealBrandstormProject } from './components/projects/LorealBrandstormP
 import { ComputerGraphicsProject } from './components/projects/ComputerGraphicsProject';
 import { IotProject } from './components/projects/IotProject';
 import { DataVisHeatmapProject } from './components/projects/DataVisHeatmap';
+import { Cs311ChatroomProject } from './components/projects/Cs311ChatroomProject';
+import { UpickProject } from './components/projects/UpickProject';
+import { WayfairProject } from './components/projects/WayfairProject';
+import { FocusZoneBraceletProject } from './components/projects/FocusZoneBraceletProject';
+import { Infosci103Project } from './components/projects/Infosci103Project';
 
 type Page = 'home' | 'projects' | 'about' | 'forfun' | 'project-detail';
 
@@ -61,6 +66,16 @@ export default function App() {
         return <ComputerGraphicsProject onBack={handleBackToProjects} />;
       case 'iot-project':
         return <IotProject onBack={handleBackToProjects} />;
+      case 'cs311-chatroom':
+        return <Cs311ChatroomProject onBack={handleBackToProjects} />;
+      case 'upick':
+        return <UpickProject onBack={handleBackToProjects} />;
+      case 'wayfair-externship':
+        return <WayfairProject onBack={handleBackToProjects} />;
+      case 'focus-zone-bracelet':
+        return <FocusZoneBraceletProject onBack={handleBackToProjects} />;
+      case 'infosci103-phantom-friend':
+        return <Infosci103Project onBack={handleBackToProjects} />;
       default:
         return <Projects onViewProject={handleViewProject} />;
     }

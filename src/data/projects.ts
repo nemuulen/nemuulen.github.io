@@ -200,4 +200,92 @@ export const projects: Project[] = [
     featured: false,
     timeline: "Spring 2024",
   },
+  {
+    id: "cs311-chatroom",
+    title: "Multi-Client TCP Chatroom with LLM Integration",
+    description:
+      "Terminal-based multi-client chatroom built on TCP sockets in Python, featuring a human client and an LLM-powered client that behaves like a natural chat participant with timing, personality, and anti-repetition logic.",
+    category: "class",
+    tags: [
+      "Python",
+      "TCP Sockets",
+      "LLM Integration",
+      "Networking",
+      "Multithreading",
+    ],
+    image: "/images/projects/cs311_multiclient_chatroom.png",
+    githubUrl:
+      "https://github.com/kyotoo33/CS311-Multi-client-chatroom-with-LLM-TCP",
+    featured: false,
+    timeline: "Spring 2026",
+  },
+  {
+    id: "upick",
+    title: "Upick",
+    description:
+      "Mongolia-first local discovery, reviews, events, and merchant promotion platform for restaurants, cafes, spas, and entertainment venues. Co-founded and led product architecture, UX, and recommendation flows from concept to functional prototype.",
+    category: "app",
+    tags: [
+      "React",
+      "Vite",
+      "Supabase",
+      "Product Design",
+      "UI/UX Design",
+    ],
+    image: "/images/projects/upick-app-ss.png",
+    githubUrl: "https://github.com/nemuulen/upick",
+    featured: true,
+    timeline: "Jul 2026 - Present",
+  },
+  {
+    id: "focus-zone-bracelet",
+    title: "Focus Zone Bracelet",
+    description:
+      "Wearable concept designed to help people struggling with focus and procrastination, developed with a full brand identity and business model under the fictional company 'Synergy' for MEDIART202.",
+    category: "class",
+    tags: [
+      "Product Design",
+      "Wearable Tech",
+      "Branding",
+      "Business Model",
+      "Design Research",
+    ],
+    image: "/images/projects/focus-ss.png",
+    featured: false,
+    timeline: "MEDIART202 | AY24 S2",
+  },
+  {
+    id: "infosci103-phantom-friend",
+    title: "\"Phantom Friend\" or \"Just a Box with Information\"",
+    description:
+      "Final presentation for INFOSCI103 analyzing Pradhan et al. (2019) on how older adults personify and ontologically categorize smart speaker-based voice assistants.",
+    category: "class",
+    tags: [
+      "HCI",
+      "Research Analysis",
+      "Voice Assistants",
+      "Anthropomorphism",
+      "Presentation",
+    ],
+    image: "/images/projects/infosci103-ss.png",
+    featured: false,
+    timeline: "INFOSCI103",
+  },
+  {
+    id: "wayfair-externship",
+    title: "Wayfair AI Agent Engineering Externship",
+    description:
+      "Externship program applying AI agent engineering to real-world business intelligence problems at Wayfair, exploring agentic workflows and generative AI for enterprise decision-making.",
+    category: "others",
+    tags: [
+      "AI Agents",
+      "Business Intelligence",
+      "Generative AI",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+    featured: false,
+    timeline: "Jun 2026 - Aug 2026",
+    award: "Wayfair Externship Certificate",
+  },
 ];

@@ -1,13 +1,11 @@
 import { motion } from "motion/react";
 import {
   ArrowRight,
-  Sparkles,
   Code,
   Palette,
   Globe,
 } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { personalInfo } from "../data/personal";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   onNavigateToProjects: () => void;
@@ -18,6 +16,15 @@ export function Hero({
   onNavigateToProjects,
   onNavigateToAbout,
 }: HeroProps) {
+  const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlipped((prev) => !prev);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center pt-12 pb-6 px-6 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto w-full">
@@ -28,18 +35,6 @@ export function Hero({
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#012169]/10 rounded-full mb-4"
-            >
-              <Sparkles className="w-4 h-4 text-[#012169]" />
-              <span className="text-sm font-semibold text-[#012169]">
-                Available for Opportunities
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,16 +124,41 @@ export function Hero({
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="relative w-80 h-80 md:w-96 md:h-96"
+              style={{ perspective: 1200 }}
             >
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10">
-                <img
-                  src="images/TOGTBAATAR_Nemuulen_Photo.jpeg"
-                  alt="Nemuulen Togtbaatar"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <motion.div
+                className="relative w-full h-full"
+                style={{ transformStyle: "preserve-3d" }}
+                animate={{ rotateY: flipped ? 180 : 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                {/* Front side - icon */}
+                <div
+                  className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10"
+                  style={{ backfaceVisibility: "hidden" }}
+                >
+                  <img
+                    src="/images/nemuulen-icon.png"
+                    alt="Nemuulen Togtbaatar icon"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-              </div>
+                {/* Back side - profile photo */}
+                <div
+                  className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10"
+                  style={{
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                  }}
+                >
+                  <img
+                    src="/images/nemuulen-profile.jpg"
+                    alt="Nemuulen Togtbaatar"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Simple Emoji Line - Centered under picture */}

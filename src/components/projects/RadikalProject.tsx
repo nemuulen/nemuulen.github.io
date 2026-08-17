@@ -21,7 +21,7 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
     // ==================== PROJECT INFO ====================
     title: "RADIKAL",
     subtitle: "AI-Powered Chinese Character Learning App",
-    coverImage: "images/projects/radikal.png",
+    coverImage: "/images/projects/radikal.png",
     tags: ["React Native", "AI Integration", "Figma", "Supabase", "Mobile UI/UX"],
     timeline: "Apr 2025 - Present",
     funding: "¥15,000 CNY Seed Funding",
@@ -72,12 +72,11 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
     
 
     documents: [
-      // {
-      //   title: "Project Proposal",
-      //   description: "Initial project proposal and planning document",
-      //   fileName: "radikal-proposal.pdf", // File should be at /public/files/projects/radikal-proposal.pdf
-      // },
-
+      {
+        title: "Project Proposal",
+        description: "Initial project proposal and planning document by Team WISION",
+        fileName: "radikal-proposal.pdf",
+      },
     ],
     
     // ==================== IMAGE GALLERY ====================

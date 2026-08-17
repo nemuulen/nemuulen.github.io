@@ -7,10 +7,11 @@ export const personalInfo = {
   phone: '+86 199 8493 0324',
   location: 'Kunshan, Jiangsu, China',
   skills: {
-    programming: ['Python', 'Java', 'C++', 'HTML', 'JavaScript', 'C#'],
-    frameworks: ['React Native', 'Tailwind CSS'],
+    programming: ['Python', 'Java', 'C++', 'HTML', 'CSS', 'JavaScript', 'C#'],
+    frameworks: ['React Native', 'React', 'Vite', 'Supabase', 'Tailwind CSS'],
     tools: ['GitHub', 'WordPress', 'Xcode', 'Microsoft 365', 'Power BI', 'Arduino IDE', 'Processing IDE', 'Unity', 'Jupyter Notebook'],
-    design: ['Adobe Illustrator', 'Adobe Premiere Pro', 'Figma', 'Canva', '3D Design', 'UI/UX Design']
+    design: ['Adobe Illustrator', 'Adobe Premiere Pro', 'Figma', 'Canva', '3D Design', 'UI/UX Design'],
+    languages: ['English (Proficient)', 'Mandarin Chinese (Advanced Intermediate)', 'Mongolian (Native)']
   }
 };
 
@@ -20,115 +21,160 @@ export const education = {
   track: 'Computer Science Track',
   location: 'Kunshan, Jiangsu, China',
   timeline: 'Aug 2023 - May 2027',
-  gpa: '3.7/4.0',
+  gpa: '3.65/4.0',
   coursework: [
-    'Programming and Data Structures',
-    'Computer Graphics',
-    'Data Visualization and Information Aesthetics',
-    'Physical Computing and Interaction',
-    'Discrete Mathematics for CS',
-    'Computer Organization',
-    'Probability and Statistics',
+    'Introduction to Programming and Data Structures',
     'Digital Design',
     'Multivariable Calculus',
-    'Creativity and Entrepreneurship', 
-    'Modelling and Predicting'
-
+    'Creativity and Entrepreneurship',
+    'Computer Organization and Programming',
+    'Computer Graphics',
+    'Modelling and Predicting',
+    'Discrete Mathematics for Computer Science',
+    'Interaction and Physical Computing',
+    'Data Visualization and Information Aesthetics'
   ],
   honors: ['Dean\'s List (x2)']
 };
 
 export const workExperience = [
   {
-    position: 'Student Research Assistant',
-    company: 'Duke Kunshan University Innovation & Entrepreneurship Initiative',
-    location: 'Kunshan, Jiangsu, China',
-    timeline: 'June 2025 - Present',
+    position: 'Research Assistant',
+    company: 'DKU Center for Teaching and Learning',
+    location: 'Kunshan, China',
+    timeline: 'Aug 2026 - Present',
     responsibilities: [
-      'Collect data on AI generated contents from students',
-      'Analyze student perceptions on AI and human creativity and authorship'
+      'Conduct a mixed-methods study evaluating RADIKAL, an AI-powered Chinese character learning platform, with DKU students in 100- and 200-level Chinese courses',
+      'Analyze how AI-supported personalization, mnemonic scaffolding, and gamification influence learning and self-regulated learning',
+      'Design and administer pre-/post-tests, surveys, reflection journals, and interviews to assess learning outcomes, engagement, and student experience',
+      'Collaborate with faculty and student developers to translate research findings into improvements in the platform and Chinese language pedagogy'
     ]
   },
   {
-    position: 'Application Counselor',
-    company: 'EduNomad Education Agency & Ger Community',
-    location: 'Ulaanbaatar, Mongolia',
-    timeline: 'June 2025 - Present',
+    position: 'Research Assistant',
+    company: 'DKU Innovation and Entrepreneurship Initiative',
+    location: 'Kunshan, China',
+    timeline: 'Jun 2025 - Present',
     responsibilities: [
-      'Guided over 20 students to apply for international bachelors\' programs'
+      'Collect data on students\' AI-generated multimedia content',
+      'Analyze student perceptions of AI\'s impact on human creativity and authorship'
+    ]
+  },
+  {
+    position: 'AI Web Development Intern',
+    company: 'GBCS Group LTD SkyIT',
+    location: 'Calgary, Canada (Remote, part-time)',
+    timeline: 'Feb 2025 - Present',
+    responsibilities: [
+      'Utilize generative AI to create custom assets, architect, and build responsive, high-performance websites primarily on Hostinger\'s WordPress AI Builder',
+      'Conduct rigorous testing to ensure the output meets professional standards of UX/UI',
+      'Manage and optimize the WordPress ecosystem, including plugin integration, theme configuration, and back-end settings to ensure a seamless live environment'
+    ]
+  },
+  {
+    position: 'Program Manager',
+    company: 'EduNomad LLC',
+    location: 'Ulaanbaatar, Mongolia (Fully remote, part-time)',
+    timeline: 'Jun 2025 - Present',
+    responsibilities: [
+      'Oversee a team of 5 university application counselors supporting 30 students, reviewing counselor reports and monitoring student progress and application outcomes',
+      'Develop lesson plans, counseling frameworks, and program strategies to improve the quality and consistency of student guidance'
+    ]
+  },
+  {
+    position: 'University Application Counselor',
+    company: 'EduNomad LLC & Ger Community',
+    location: 'Ulaanbaatar, Mongolia (Fully remote, part-time)',
+    timeline: 'Jun 2025 - Jun 2026',
+    responsibilities: [
+      'Guided over 30 students to apply for international bachelor\'s programs, providing personalized counseling on university selection, application essays, and admissions strategy'
     ]
   },
   {
     position: 'Student Website Developer & Graphic Designer',
-    company: 'Duke Kunshan University Intersections Club',
-    location: 'Kunshan, Jiangsu, China',
+    company: 'DKU Intersections Club',
+    location: 'Kunshan, China',
     timeline: 'Aug 2024 - Dec 2025',
     responsibilities: [
-      'Edited and updated over 20 website content and student written articles edited by professors',
-      'Organized showcases to attract writers and readers, and designing posters'
+      'Developed and maintained club website using WordPress, updating 20+ pages with student articles and multimedia content',
+      'Organized campus-wide showcases to attract writers and readers',
+      'Designed promotional posters and digital content using Canva and Adobe Illustrator'
     ]
   },
   {
-    position: 'Media Associate',
-    company: 'Duke Kunshan University Athletics Department',
-    location: 'Kunshan, Jiangsu, China',
-    timeline: 'Mar 2025 - May 2025',
+    position: 'Production & Marketing Intern',
+    company: 'Viral Agency',
+    location: 'Ulaanbaatar, Mongolia (onsite, part-time)',
+    timeline: 'Jun 2024 - Jul 2024',
     responsibilities: [
-      'Shot photos and videos at athletics\' events to promote the athletics department on Instagram'
+      'Produced 5 digital content pieces for major Mongolian corporations using Adobe Premiere Pro',
+      'Assisted in brainstorming and drafting marketing campaign proposals for major projects'
+    ]
+  },
+  {
+    position: 'Assistant Mathematics Teacher',
+    company: 'AKOK Academy',
+    location: 'Ulaanbaatar, Mongolia (onsite, part-time)',
+    timeline: 'Jun 2022 - Jul 2025',
+    responsibilities: [
+      'Taught high-school level mathematics to nearly 150 middle school students for exam preparation',
+      'Administered monthly public mock exams for 5th and 8th graders',
+      'Assisted in marketing through phone outreach to prospective students and families'
     ]
   },
   {
     position: 'Senior Sports Complex Associate',
-    company: 'Duke Kunshan University Athletics Department',
-    location: 'Kunshan, Jiangsu, China',
+    company: 'DKU Athletics Department',
+    location: 'Kunshan, China',
     timeline: 'Aug 2023 - Dec 2024',
     responsibilities: [
       'Managed 3-4 associates per shift to ensure safe environments and quality service',
-      'Assigned and recorded shifts for over 40 fellow associates to ensure great logistics',
-      'Communicated with department\'s head and took meeting minutes weekly'
-    ]
-  },
-  {
-    position: 'Intern, Production & Marketing Department',
-    company: 'Viral Agency',
-    location: 'Ulaanbaatar, Mongolia',
-    timeline: 'June 2024 - July 2024',
-    responsibilities: [
-      'Produced 5 digital contents for major Mongolian corporations using Adobe Premier Pro',
-      'Assisted on brainstorming and drafting marketing campaign proposals for major projects'
-    ]
-  },
-  {
-    position: 'Associate Mathematics Teacher',
-    company: 'AKOK Academy',
-    location: 'Ulaanbaatar, Mongolia',
-    timeline: 'June 2022 - July 2025',
-    responsibilities: [
-      'Taught high-school level mathematics to nearly 150 middle school students for exam preparation',
-      'Assisted in marketing through phone'
+      'Assigned and recorded shifts for over 40 fellow associates to ensure efficient logistics',
+      'Communicated with department head and took meeting minutes weekly'
     ]
   }
 ];
 
 export const leadership = [
   {
-    organization: 'RADIKAL - AI-Powered Learning App',
-    position: 'Project Leader & Full-Stack Developer',
+    organization: 'RADIKAL - AI-Powered Chinese Character Learning App',
+    position: 'Project Leader & Full-Stack Developer (Co-founder)',
     timeline: 'Apr 2025 - Present',
     achievements: [
-      'Secured ¥15,000 CNY in seed funding through competitive pitch',
-      'Led team in designing mobile UI/UX and developing cross-platform app',
-      'Conducted user testing with 100+ students and iterated on feedback'
+      'Secured ¥15,000 CNY in seed funding through a competitive pitch presentation',
+      'Designed and developed cross-platform app using React Native with Supabase backend',
+      'Integrated AI features for personalized learning paths and story-making to enhance user engagement',
+      'Conducted user testing with 100+ students, iterating on feedback to improve app functionality and design'
     ]
   },
   {
-    organization: 'Challo - Community Building Initiative',
-    position: 'Millennium Fellow',
+    organization: 'Challo - Community Building & Wellbeing Initiative',
+    position: 'Founder & Millennium Fellow',
     timeline: 'Aug 2025 - Dec 2025',
     achievements: [
-      'Selected from 60,000+ applicants worldwide by UN Academic Impact & MCN',
-      'Built interactive prototypes using Figma and React Native',
-      'Earned certificate from United Nations Academic Impact'
+      'Selected as Millennium Fellow from 60,000+ applicants worldwide through United Nations Academic Impact and Millennium Campus Network civic leadership program',
+      'Built interactive prototypes using Figma and React Native for a digital wellness platform',
+      'Engaged in webinars with UN leaders to develop project management and social impact strategies',
+      'Earned certificate recognizing successful completion from the United Nations Academic Impact and MCN'
+    ]
+  },
+  {
+    organization: 'Upick - Recommendation App for Mongolia',
+    position: 'Co-founder',
+    timeline: 'Jul 2026 - Present',
+    achievements: [
+      'Co-founded and led development of a recommendation platform for discovering, evaluating, and reviewing local businesses and services in Mongolia',
+      'Designed the product architecture, user experience, and core recommendation flows, translating user research into technical and product decisions',
+      'Led the product from concept to functional prototype, coordinating development and iterating on features based on user feedback'
+    ]
+  },
+  {
+    organization: 'DKU Computer Science Club',
+    position: 'Creative/Marketing Team Member',
+    timeline: 'Feb 2026 - Present',
+    achievements: [
+      'Assisted in organizing and planning HackDKU 2026, a campus-wide, 7-day hackathon',
+      'Designed merch and posters on Canva and Figma; edited video on CapCut'
     ]
   },
   {
@@ -141,15 +187,6 @@ export const leadership = [
     ]
   },
   {
-    organization: 'DKU Mongolian Students\' Association',
-    position: 'Logistics Head',
-    timeline: 'Jan 2024 - May 2024',
-    achievements: [
-      'Coordinated logistics for cultural events and celebrations',
-      'Managed event planning and execution for Mongolian student community'
-    ]
-  },
-  {
     organization: 'DKU iOS Club by University-Corporation Innovation Lab @Apple',
     position: 'Graphic Designer',
     timeline: 'Aug 2023 - May 2024',
@@ -159,11 +196,18 @@ export const leadership = [
     ]
   },
   {
-    organization: 'DKU International Enrollment Management',
-    position: 'Student Ambassador',
+    organization: 'DKU Women\'s Volleyball',
+    position: 'Varsity Team Member',
+    timeline: 'Aug 2023 - Dec 2024',
+    achievements: []
+  },
+  {
+    organization: 'DKU International Student Services',
+    position: 'Global Student Ambassador',
     timeline: 'Dec 2023 - Present',
     achievements: [
-      'Guided over 60 prospective international students about admissions and onboarding'
+      'Guided over 60 prospective international students about admissions and onboarding',
+      'Organized 5 online and in-person meetings with incoming Mongolian freshmen to promote DKU'
     ]
   },
   {
@@ -172,8 +216,7 @@ export const leadership = [
     timeline: 'Aug 2020 - Jul 2023',
     achievements: [
       'Organized 30+ monthly events for social and environmental causes',
-      'Managed social media content and community engagement',
-      'Achieved First Aid Giver certificate'
+      'Designed promotional and informational posters and managed the Instagram account'
     ]
   }
 ];
@@ -181,28 +224,28 @@ export const leadership = [
 export const awards = [
   {
     title: '2nd Prize - DKU Hackathon',
-    organization: 'Duke Kunshan University',
+    organization: 'DKU Hackathon',
     year: 'Jan 2024',
     placement: '2nd Place',
-    description: 'First Aid AI Application with multi-modal recognition'
+    description: 'Awarded 2nd place for developing an AI-powered emergency medical response app within 24 hours; collaborated with the team in Xcode to prototype, test, and integrate features.'
   },
   {
     title: '3rd Place - Creative Campus Marketing Competition',
     organization: 'Viral Agency',
-    year: '2023',
+    year: 'Jul 2024',
     placement: '3rd Place',
-    description: '500,000 MNT prize for innovative campus marketing campaign'
+    description: 'Awarded 3rd place and a 500,000 MNT prize competing with marketing professionals at a 2-stage campaign pitching competition. Pitched marketing campaigns for Coca-Cola and UNFAO Mongolia.'
   },
   {
-    title: 'L\'Oréal Brandstorm 2025 Exhibition Certificate',
-    organization: 'L\'Oréal',
-    year: '2025',
-    description: 'Participated in global business innovation competition'
+    title: 'Wayfair AI Agent Engineering for Business Intelligence Externship',
+    organization: 'Wayfair | Boston, Massachusetts (Fully remote)',
+    year: 'Jun 2026 - Aug 2026',
+    description: 'Completed an externship program applying AI agent engineering to real-world business intelligence problems.'
   },
   {
-    title: 'First Aid Giver Certificate',
-    organization: 'Red Cross',
-    year: '2023',
-    description: 'Certified in emergency first aid response'
+    title: 'Exhibition Certificate',
+    organization: 'Forum and Exhibition on Multimodality in Multilingual and Intercultural Education | Wuhan University & DKU',
+    year: 'Nov 2024',
+    description: 'Selected to exhibit at a forum exploring multimodality in multilingual and intercultural education.'
   }
 ];
