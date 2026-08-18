@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 import {
   personalInfo,
   education,
@@ -28,17 +29,101 @@ interface AboutProps {
   onViewProject?: (projectId: string) => void;
 }
 
+/**
+ * Types `text` out on mount at a steady rate.
+ *
+ * - The full string is always rendered underneath at zero opacity so the
+ *   block reserves its final height up front and nothing below it shifts.
+ * - Honours prefers-reduced-motion by showing the text immediately.
+ * - Screen readers get the complete string, not the partial one.
+ */
+function Typewriter({
+  text,
+  className = '',
+  style
+}: {
+  text: string;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const [count, setCount] = useState(0);
+  const done = count >= text.length;
+
+  useEffect(() => {
+    const reduceMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      setCount(text.length);
+      return;
+    }
+
+    const CHARS_PER_SECOND = 130;
+    let frame = 0;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const next = Math.min(
+        text.length,
+        Math.floor(((now - start) / 1000) * CHARS_PER_SECOND)
+      );
+      setCount(next);
+      if (next < text.length) frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [text]);
+
+  // NOTE: src/index.css is a frozen, pre-compiled Tailwind build (no Tailwind
+  // in the pipeline), so any class not already in that file is a no-op.
+  // Anything custom here is therefore expressed as an inline style.
+  return (
+    <span className={className} style={{ display: 'grid', ...style }}>
+      {/* Height reservation layer - holds the final height so nothing shifts. */}
+      <span aria-hidden style={{ gridArea: '1 / 1', visibility: 'hidden' }}>
+        {text}
+      </span>
+      <span style={{ gridArea: '1 / 1' }} aria-label={text}>
+        <span aria-hidden>{text.slice(0, count)}</span>
+        {!done && (
+          <motion.span
+            aria-hidden
+            animate={{ opacity: [1, 1, 0, 0] }}
+            transition={{ duration: 1, times: [0, 0.5, 0.5, 1], repeat: Infinity }}
+            style={{
+              display: 'inline-block',
+              width: '2px',
+              height: '1em',
+              marginLeft: '2px',
+              verticalAlign: '-0.15em',
+              backgroundColor: '#012169',
+            }}
+          />
+        )}
+      </span>
+    </span>
+  );
+}
+
 export function About({ onViewProject }: AboutProps) {
-  /** Small inline link rendered on any entry that has a matching project page. */
+  /**
+   * Link rendered on any entry that has a matching project page.
+   * Wrapped in a block-level div so it always starts on its own line,
+   * even when the preceding sibling is inline (e.g. a date span).
+   */
   const SeeMore = ({ projectId }: { projectId?: string }) =>
     projectId && onViewProject ? (
-      <button
-        onClick={() => onViewProject(projectId)}
-        className="group/see inline-flex items-center gap-1 mt-2 text-xs font-semibold text-[#012169] hover:text-[#00539B] transition-colors"
-      >
-        See more
-        <ArrowRight className="w-3 h-3 group-hover/see:translate-x-1 transition-transform duration-300" />
-      </button>
+      <div className="block mt-2">
+        <button
+          onClick={() => onViewProject(projectId)}
+          className="group inline-flex items-center gap-1 text-xs font-semibold text-[#012169] transition-colors"
+        >
+          See more
+          <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+        </button>
+      </div>
     ) : null;
 
   return (
@@ -62,9 +147,25 @@ export function About({ onViewProject }: AboutProps) {
             </span>
           </h1>
 
-          <p className="text-lg text-[#475569] max-w-3xl mx-auto mb-4 leading-relaxed">
-            {personalInfo.bio}
-          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="relative max-w-2xl mx-auto mb-6"
+            style={{ marginTop: '2rem' }}
+          >
+            {/* Thin accent rule above the summary */}
+            <span
+              className="block rounded-full bg-[#012169] mx-auto mb-5"
+              style={{ width: '40px', height: '3px' }}
+            />
+
+            <Typewriter
+              text={personalInfo.bio}
+              className="text-sm text-[#475569] text-left"
+              style={{ lineHeight: 1.8 }}
+            />
+          </motion.div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm mb-5">
             <div className="flex items-center gap-2 text-[#475569]">

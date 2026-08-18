@@ -218,13 +218,24 @@ export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplatePro
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+              className="flex items-center justify-center"
+              style={{
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: 50,
+                padding: '1rem',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              }}
               onClick={() => setSelectedPdf(null)}
             >
               <motion.div
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="bg-white rounded-lg max-w-6xl w-full max-h-[90vh] flex flex-col"
+                className="bg-white rounded-lg w-full flex flex-col"
+                style={{ maxWidth: '72rem', maxHeight: '90vh' }}
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Header */}
@@ -232,7 +243,8 @@ export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplatePro
                   <h3 className="font-semibold text-[#012169]">PDF Preview</h3>
                   <button
                     onClick={() => setSelectedPdf(null)}
-                    className="p-1 hover:bg-gray-100 rounded transition-colors"
+                    className="rounded transition-colors"
+                    style={{ padding: '0.25rem' }}
                     aria-label="Close preview"
                   >
                     <X className="w-5 h-5" />

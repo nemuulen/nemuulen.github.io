@@ -28,10 +28,20 @@ export function ProjectCard({ project, index, onViewProject }: ProjectCardProps)
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#012169] to-[#00539B]">
+            <div
+              className="w-full h-full flex items-center justify-center"
+              style={{
+                background: "linear-gradient(135deg, #012169 0%, #00539B 100%)",
+              }}
+            >
               <span
-                style={{ fontFamily: "var(--font-script)" }}
-                className="text-white/90 text-5xl select-none"
+                className="text-white"
+                style={{
+                  fontFamily: "var(--font-script)",
+                  fontSize: "3rem",
+                  opacity: 0.9,
+                  userSelect: "none",
+                }}
               >
                 {project.title.charAt(0)}
               </span>
