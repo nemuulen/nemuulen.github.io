@@ -2,7 +2,7 @@ export const personalInfo = {
   name: 'Nemuulen Togtbaatar',
   nickname: 'Nemka',
   title: 'Developer & Designer',
-  bio: 'Dedicated Computation and Design student with experience in mobile application development, web development, and UI/UX design. Proven track record in securing project funding, leading technical initiatives, prototyping, and delivering user-centered solutions.',
+  bio: 'Interdisciplinary Computation & Design student at Duke Kunshan University specializing in human-centered technology. Proven expertise in AI-driven web development, UI/UX, and user research. Adept at leading technical initiatives, from architecting high-performance digital platforms to managing cross-functional teams. Skilled in Python, C++, and Java, with a track record of delivering innovative, user-centered solutions through prototyping and data-driven insights. Committed to bridging technical rigor with creative, high-impact digital solutions.',
   email: 'nt152@duke.edu',
   phone: '+86 19984930324',
   location: 'Kunshan, Jiangsu, China',
@@ -56,28 +56,6 @@ export const workExperience = [
     ]
   },
   {
-    position: 'Research Assistant',
-    company: 'DKU Innovation and Entrepreneurship Initiative',
-    location: 'Kunshan, China (Onsite)',
-    timeline: 'Jun 2025 - Present',
-    responsibilities: [
-      'Collect data on students\' AI-generated multimedia content',
-      'Analyze student perceptions of AI\'s impact on human creativity and authorship'
-    ]
-  },
-  {
-    position: 'AI Web Development Intern',
-    company: 'GBCS Group LTD SkyIT',
-    location: 'Calgary, Canada (Remote)',
-    timeline: 'Feb 2025 - Present',
-    projectId: 'gbcs-internship',
-    responsibilities: [
-      'Utilizing generative AI to create custom assets, architect and build responsive, high-performance websites primarily on Hostinger\'s WordPress AI Builder',
-      'Conduct rigorous testing to ensure the output meets professional standards of UX/UI',
-      'Manage and optimize the WordPress ecosystem, including plugin integration, theme configuration, and back-end settings to ensure a seamless live environment'
-    ]
-  },
-  {
     position: 'Program Manager',
     company: 'EduNomad LLC',
     location: 'Ulaanbaatar, Mongolia (Remote)',
@@ -88,12 +66,34 @@ export const workExperience = [
     ]
   },
   {
+    position: 'AI Web Development Intern',
+    company: 'GBCS Group LTD SkyIT',
+    location: 'Calgary, Canada (Remote)',
+    timeline: 'Mar 2025 - Jun 2026',
+    projectId: 'gbcs-internship',
+    responsibilities: [
+      'Utilized generative AI to create custom assets, architect and build responsive, high-performance websites primarily on Hostinger\'s WordPress AI Builder',
+      'Conducted rigorous testing to ensure the output meets professional standards of UX/UI',
+      'Managed and optimized the WordPress ecosystem, including plugin integration, theme configuration, and back-end settings to ensure a seamless live environment'
+    ]
+  },
+  {
     position: 'University Application Counselor',
     company: 'EduNomad LLC & Ger Community',
-    location: 'Ulaanbaatar, Mongolia (Remote)',
+    location: 'Ulaanbaatar, Mongolia (Remote, part-time)',
     timeline: 'Jun 2025 - Jun 2026',
     responsibilities: [
       'Guided over 30 students to apply for international bachelor\'s programs, providing personalized counseling on university selection, application essays, and admissions strategy'
+    ]
+  },
+  {
+    position: 'Research Assistant',
+    company: 'DKU Innovation and Entrepreneurship Initiative',
+    location: 'Kunshan, China (Onsite)',
+    timeline: 'Jun 2025 - May 2026',
+    responsibilities: [
+      'Collected data on students\' AI-generated multimedia content',
+      'Analyzed student perceptions of AI\'s impact on human creativity and authorship'
     ]
   },
   {
@@ -185,7 +185,7 @@ export const leadership = [
     organization: 'DKU Computer Science Club',
     position: 'Creative/Marketing Team Member',
     location: 'Kunshan, China',
-    timeline: 'Feb 2026 - Present',
+    timeline: 'Feb 2026 - May 2026',
     achievements: [
       'Assisted in organizing and planning HackDKU 2026, a campus-wide, 7-day hackathon',
       'Merch and poster design on Canva and Figma; video editing on CapCut'
@@ -233,7 +233,7 @@ export const volunteerWork = [
   },
   {
     organization: 'Mongolian Red Cross Youth',
-    position: 'Member & Social Media Manager',
+    position: 'Business Member & Social Media Manager',
     location: 'Ulaanbaatar, Mongolia',
     timeline: 'Aug 2020 - Jul 2023',
     achievements: [

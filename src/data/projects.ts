@@ -227,7 +227,7 @@ export const projects: Project[] = [
     id: "gbcs-internship",
     title: "GBCS Group SkyIT - AI Web Development",
     description:
-      "Ongoing remote internship architecting and building responsive, high-performance client websites using generative AI for custom assets, primarily on Hostinger's WordPress AI Builder.",
+      "Remote internship architecting and building responsive, high-performance client websites using generative AI for custom assets, primarily on Hostinger's WordPress AI Builder.",
     category: "web",
     tags: [
       "WordPress",
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     ],
     demoUrl: "https://gbcs.com",
     featured: false,
-    timeline: "Feb 2025 - Present",
+    timeline: "Mar 2025 - Jun 2026",
   },
   {
     id: "focus-zone-bracelet",

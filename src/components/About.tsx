@@ -82,8 +82,8 @@ export function About({ onViewProject }: AboutProps) {
           </div>
 
           <motion.a
-            href="/files/Nemuulen_gradCV.docx"
-            download="Nemuulen_Togtbaatar_CV.docx"
+            href="/files/Nemuulen_GradCV.pdf"
+            download="Nemuulen_Togtbaatar_CV.pdf"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
