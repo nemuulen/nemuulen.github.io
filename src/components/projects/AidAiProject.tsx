@@ -27,8 +27,28 @@ export function AidAiProject({ onBack }: AidAiProjectProps) {
         content: <p>The app integrates multi-modal recognition, using image processing to identify visible injuries, voice recognition to let users describe symptoms hands-free, and facial recognition to help identify patients for medical records and follow-up care.</p>,
       },
       {
+        title: "The Problem",
+        content: (
+          <p>
+            In a medical emergency, the people first on the scene are almost never medically trained,
+            and the critical minutes are lost to not knowing what to do. Text-based first aid guides
+            fail exactly when they are needed most - nobody scrolls a manual while someone is
+            bleeding. AID-AI was built around that constraint: the interface had to work when the
+            user is panicking, one-handed, and possibly unable to look at the screen.
+          </p>
+        ),
+      },
+      {
         title: "Hackathon Experience",
-        content: <p>Built as part of the DKU Hackathon, the team prototyped, tested, and integrated all features in Xcode within the 24-hour time limit, earning 2nd Prize for the project.</p>,
+        content: (
+          <p>
+            Built as Team Aspiration during the 24-hour DKU Hackathon in January 2024. The team
+            prototyped, tested and integrated every feature in Xcode inside the time limit and took
+            2nd Prize. Working to a hard deadline forced brutal scoping - we cut anything that could
+            not be demonstrated live and concentrated on making the multi-modal recognition loop
+            convincing end to end.
+          </p>
+        ),
       },
     ],
 

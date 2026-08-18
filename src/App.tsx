@@ -15,7 +15,6 @@ import { AidAiProject } from './components/projects/AidAiProject';
 import { DkuIntersectionsProject } from './components/projects/DkuIntersectionsProject';
 import { ViralCampaignProject } from './components/projects/ViralCampaignProject';
 import { DataVisualizationProject } from './components/projects/DataVisualizationProject';
-import { LorealBrandstormProject } from './components/projects/LorealBrandstormProject';
 import { ComputerGraphicsProject } from './components/projects/ComputerGraphicsProject';
 import { IotProject } from './components/projects/IotProject';
 import { DataVisHeatmapProject } from './components/projects/DataVisHeatmap';
@@ -61,8 +60,6 @@ export default function App() {
         return <DataVisualizationProject onBack={handleBackToProjects} />;
       case 'data-visualization-heatmap':
         return <DataVisHeatmapProject onBack={handleBackToProjects} />;
-      case 'loreal-brandstorm':
-        return <LorealBrandstormProject onBack={handleBackToProjects} />;
       case 'computer-graphics':
         return <ComputerGraphicsProject onBack={handleBackToProjects} />;
       case 'iot-project':

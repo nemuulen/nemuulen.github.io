@@ -54,6 +54,34 @@ export function UpickProject({ onBack }: UpickProjectProps) {
         ),
       },
       {
+        title: "Why Mongolia First",
+        content: (
+          <p>
+            Global review platforms cover Mongolia thinly, and the listings that do exist are often
+            stale, unverified, or missing the details that actually decide where people go. Upick is
+            built for the local market from the ground up - Mongolian-language interface throughout,
+            district-level search, category-specific rating breakdowns rather than a single blunt
+            star score, and specialty tags that reflect how people here actually choose a place: is
+            it quiet, is the Wi-Fi good, is it suitable for working, is there rooftop seating, is it
+            a date spot.
+          </p>
+        ),
+      },
+      {
+        title: "Trust & Data Integrity",
+        content: (
+          <p>
+            A review platform lives or dies on whether its content is real. We set explicit rules
+            from the start: only manually collected public facts, owner-submitted official photos,
+            official URLs, and original user reviews. Copied reviews, scraped ratings, unauthorised
+            photos, and other platforms' user data are all out of bounds. Businesses can reply to
+            reviews only once verified, and reviewers can comment anonymously - name and avatar
+            hidden, badge still shown - so honest feedback does not carry a social cost in a small
+            market where people know each other.
+          </p>
+        ),
+      },
+      {
         title: "Technical Details",
         content: (
           <div>
@@ -61,9 +89,23 @@ export function UpickProject({ onBack }: UpickProjectProps) {
               <li>Frontend: Vite + React web app</li>
               <li>Backend: Supabase (auth, database, storage)</li>
               <li>Data seeding: Python scraper for initial place data</li>
-              <li>Design: custom design system and UI kit built in Figma</li>
+              <li>Design: custom design system, tokens and UI kit built in Figma</li>
+              <li>Auth: email/password with verification, password reset and strength requirements</li>
+              <li>Accessibility and localisation: language and theme switching, replayable onboarding</li>
             </ul>
           </div>
+        ),
+      },
+      {
+        title: "Current Status",
+        content: (
+          <p>
+            The app is a functional prototype with both the consumer and business experiences built
+            out, including settings, legal pages, and account-deletion flows needed for app store
+            review. Production launch still requires completing backend service-role work for final
+            account deletion and moderation operations. Delivery, in-app payments, a full booking
+            engine, and an AI recommendation engine are deliberately out of scope for the MVP.
+          </p>
         ),
       },
     ],

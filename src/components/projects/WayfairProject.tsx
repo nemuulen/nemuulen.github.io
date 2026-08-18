@@ -26,9 +26,34 @@ export function WayfairProject({ onBack }: WayfairProjectProps) {
         title: "Focus Areas",
         content: (
           <p>
-            The externship centered on designing and reasoning about AI agents applied to business intelligence
-            use cases - translating messy business questions into structured, agent-driven workflows that support
-            faster and more reliable decision-making.
+            The externship centred on designing and reasoning about AI agents applied to business
+            intelligence use cases - translating messy business questions into structured,
+            agent-driven workflows that support faster and more reliable decision-making.
+          </p>
+        ),
+      },
+      {
+        title: "Why Agents for BI",
+        content: (
+          <p>
+            Business intelligence at retail scale is rarely limited by a shortage of data. It is
+            limited by the distance between the question someone actually asks and the query that
+            would answer it. Agent engineering is interesting here precisely because that gap is a
+            reasoning problem rather than a dashboard problem - the agent has to decompose an
+            ambiguous request, choose the right sources, and be honest about what it cannot
+            determine.
+          </p>
+        ),
+      },
+      {
+        title: "What I Took From It",
+        content: (
+          <p>
+            The programme connected directly to work I was already doing. RADIKAL leans on LLMs for
+            generative content, and the same discipline applies in both settings: models are
+            unreliable narrators, so most of the engineering effort goes into constraining them -
+            grounding outputs in real data, validating before anything reaches a user, and designing
+            for the cases where the model is confidently wrong.
           </p>
         ),
       },

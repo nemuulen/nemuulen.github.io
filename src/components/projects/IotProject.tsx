@@ -12,7 +12,9 @@ export function IotProject({ onBack }: IotProjectProps) {
   const projectData: ProjectDetailData = {
     title: "Interaction & Physical Computing",
     subtitle: "INFOSCI201 | Arduino & Unity",
+    coverImage: "/images/projects/infosci201-midterm.png",
     tags: [
+      "3D Printing",
       "Arduino",
       "C++",
       "Unity",
@@ -32,9 +34,14 @@ export function IotProject({ onBack }: IotProjectProps) {
         content: (
           <div>
             <p className="mb-3">
-              An ambient RGB lamp driven entirely by a standard NEC infrared remote. The lamp decodes
-              IR commands, maps them to lighting state, and mirrors the current status on a 16x2 RGB
-              LCD alongside live sensor readings.
+              An ambient RGB lamp driven entirely by a standard NEC infrared remote, housed in a
+              custom 3D-printed enclosure modelled on the Mario question block. The translucent white
+              shell diffuses the RGB LED evenly across all four faces, while the black base holds the
+              Arduino, sensors, and cabling out of sight.
+            </p>
+            <p className="mb-3">
+              The lamp decodes IR commands, maps them to lighting state, and mirrors the current
+              status on a 16x2 RGB LCD alongside live sensor readings.
             </p>
             <ul style={{ listStyleType: "disc" }}>
               <li><strong>Power toggle</strong> on the remote's power key</li>
@@ -52,12 +59,15 @@ export function IotProject({ onBack }: IotProjectProps) {
         content: (
           <div>
             <p className="mb-3">
-              A two-player physical controller driving a horse race rendered in Unity. The Arduino
-              owns game state and randomness; Unity owns presentation. The two communicate over a
-              230400-baud serial link.
+              A two-player physical controller driving a 3D horse race rendered in Unity. The Arduino
+              owns game state and randomness; Unity owns presentation, running the track, hurdles,
+              horse animation, and win screen. The two communicate over a 230400-baud serial link.
             </p>
             <ul style={{ listStyleType: "disc" }}>
-              <li>A roll button generates four random symbol values and streams them to Unity</li>
+              <li>
+                A roll button generates four random symbol values - square, circle, heart, triangle -
+                and streams them to Unity, where each player accumulates a running tally per symbol
+              </li>
               <li>Left, right, and confirm buttons let the active player navigate and commit choices</li>
               <li>Two LEDs indicate whose turn it is, toggling automatically once Unity acknowledges a move</li>
               <li>The Arduino blocks further input while waiting on Unity, preventing desynchronised state between the physical and digital sides</li>
@@ -81,7 +91,10 @@ export function IotProject({ onBack }: IotProjectProps) {
 
     links: [],
     documents: [],
-    gallery: [],
+    gallery: [
+      "/images/projects/infosci201-midterm.png",
+      "/images/projects/infosci201-final.png",
+    ],
   };
 
   return <ProjectDetailTemplate data={projectData} onBack={onBack} />;

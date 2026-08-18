@@ -22,9 +22,47 @@ export function DkuIntersectionsProject({ onBack }: DkuIntersectionsProjectProps
     
     sections: [
       {
-        title: "My duties",
-        content: <p> Developed and maintained club website using WordPress, updated 20+ pages with student articles and multimedia
-        content, redesigned and debugged the website layout. </p>,
+        title: "My Role",
+        content: (
+          <div>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                Developed and maintained the club website in WordPress, updating 20+ pages with
+                student articles and multimedia content
+              </li>
+              <li>Redesigned and debugged the site layout for consistency across devices</li>
+              <li>
+                Organised campus-wide showcases to attract new writers and grow readership
+              </li>
+              <li>
+                Designed promotional posters and digital content in Canva and Adobe Illustrator,
+                aligned to university brand guidelines
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "The Editorial Challenge",
+        content: (
+          <p>
+            Intersections publishes in both Chinese and English, which makes layout consistency
+            genuinely difficult - the two scripts have different line heights, character density and
+            reading rhythms, and a template tuned for one tends to look wrong in the other. A large
+            part of the maintenance work was keeping bilingual articles legible and visually
+            coherent within a single WordPress theme.
+          </p>
+        ),
+      },
+      {
+        title: "Beyond Publishing",
+        content: (
+          <p>
+            A student journal only works if writers keep submitting, so the role was as much
+            community-building as web development. Running showcases and designing promotional
+            material for them mattered to the site's health just as much as the pages themselves.
+          </p>
+        ),
       },
     ],
     
