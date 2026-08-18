@@ -26,16 +26,17 @@ export const projects: Project[] = [
     id: "radikal",
     title: "RADIKAL",
     description:
-      "AI-powered Chinese character learning app designed to help students master radicals through personalized learning paths and interactive story-making.",
+      "Gamified, AI-powered app that turns Chinese character memorization into creative play through radical construction, personal memory notes, and AI-generated stories. Method validated with 66 learners; ¥15,000 CNY seed funded under DKU's Dii programme.",
     category: "app",
     tags: [
       "React Native",
+      "Supabase",
       "AI Integration",
-      "Mobile UI/UX",
+      "UI/UX",
       "User research",
     ],
     image:
-      "/images/projects/radikal.png",
+      "/images/projects/radikal-banner.png",
     featured: true,
     timeline: "Apr 2025 - Present",
     funding: "¥15,000 CNY Seed Funding",
@@ -81,7 +82,7 @@ export const projects: Project[] = [
     id: "dku-intersections",
     title: "DKU Intersections Website",
     description:
-      "Redesigned and maintained the Duke Kunshan University Intersections website using WordPress and Figma. Created visually appealing graphics aligned with university brand guidelines while ensuring cross-platform consistency.",
+      "Redesigned and maintained the Duke Kunshan University Intersections Journal website using WordPress. Created visually appealing graphics aligned with university brand guidelines while ensuring cross-platform consistency.",
     category: "web",
     tags: [
       "WordPress",
@@ -191,7 +192,7 @@ export const projects: Project[] = [
     id: "cs311-chatroom",
     title: "Multi-Client TCP Chatroom with LLM Integration",
     description:
-      "Terminal-based multi-client chatroom built on TCP sockets in Python, featuring a human client and an LLM-powered client that behaves like a natural chat participant with timing, personality, and anti-repetition logic.",
+      "Terminal-based multi-client chatroom built on TCP sockets in Python, featuring a human client and an LLM-powered client that behaves like a natural chat participant with timing and personality.",
     category: "class",
     tags: [
       "Python",
@@ -199,6 +200,7 @@ export const projects: Project[] = [
       "LLM Integration",
       "Networking",
       "Multithreading",
+      "Prompt Engineering",
     ],
     image: "/images/projects/cs311_multiclient_chatroom.png",
     githubUrl:
@@ -210,7 +212,7 @@ export const projects: Project[] = [
     id: "upick",
     title: "Upick",
     description:
-      "Mongolia-first local discovery, reviews, events, and merchant promotion platform for restaurants, cafes, spas, and entertainment venues. Co-founded and led product architecture, UX, and recommendation flows from concept to functional prototype.",
+      "Mongolia-first local discovery, reviews, events, and merchant promotion platform for restaurants, cafes, spas, and entertainment venues. Co-founded and led product architecture, UX, and recommendation flows from concept to functional mobile app.",
     category: "app",
     tags: [
       "React",
@@ -227,14 +229,14 @@ export const projects: Project[] = [
     id: "gbcs-internship",
     title: "GBCS Group SkyIT - AI Web Development",
     description:
-      "Remote internship architecting and building responsive, high-performance client websites using generative AI for custom assets, primarily on Hostinger's WordPress AI Builder.",
+      "Internship architecting and building responsive, high-performance company website primarily on Hostinger's WordPress Builder.",
     category: "web",
     tags: [
       "WordPress",
-      "Generative AI",
       "Web Development",
       "UI/UX Testing",
       "Hostinger",
+      "CSS",
     ],
     demoUrl: "https://gbcs.com",
     featured: false,
@@ -252,6 +254,7 @@ export const projects: Project[] = [
       "Branding",
       "Business Model",
       "Design Research",
+      "Prototyping",
     ],
     image: "/images/projects/focus-ss.png",
     featured: false,
@@ -266,8 +269,6 @@ export const projects: Project[] = [
     tags: [
       "HCI",
       "Research Analysis",
-      "Voice Assistants",
-      "Anthropomorphism",
       "Presentation",
     ],
     image: "/images/projects/infosci103-ss.png",
