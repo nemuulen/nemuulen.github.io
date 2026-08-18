@@ -176,7 +176,7 @@ export const projects: Project[] = [
     id: "iot-project",
     title: "Interaction & Physical Computing",
     description:
-      "Two Arduino builds for INFOSCI201: an IR-controlled ambient lamp in a 3D-printed Mario question-block enclosure with live temperature and light readout, and a two-player horse race where physical controls drive a Unity scene over serial.",
+      "Two Arduino builds for INFOSCI201: a sensor-driven desk lamp with a Pomodoro timer in a 3D-printed Mario question-block enclosure, and a two-player racing game inspired by Mongolian shagai, where an Arduino controller drives a Unity scene over serial.",
     category: "class",
     tags: [
       "Arduino",
@@ -276,7 +276,23 @@ export const projects: Project[] = [
     ],
     image: "/images/projects/infosci103-ss.png",
     featured: false,
-    timeline: "INFOSCI103",
+    timeline: "INFOSCI103 | Midterm",
+  },
+  {
+    id: "infosci103-final",
+    title: "Unmasking Depression",
+    description:
+      "Social computing research examining whether online social network activity can indicate depressive symptoms, with an original study design applying the question to Mongolian university students through emoji use.",
+    category: "class",
+    tags: [
+      "Social Computing",
+      "Research Design",
+      "Literature Review",
+      "Mental Health",
+      "Data Ethics",
+    ],
+    featured: false,
+    timeline: "INFOSCI103 | Final",
   },
   {
     id: "wayfair-externship",

@@ -23,6 +23,7 @@ import { UpickProject } from './components/projects/UpickProject';
 import { WayfairProject } from './components/projects/WayfairProject';
 import { FocusZoneBraceletProject } from './components/projects/FocusZoneBraceletProject';
 import { Infosci103Project } from './components/projects/Infosci103Project';
+import { Infosci103FinalProject } from './components/projects/Infosci103FinalProject';
 import { GbcsProject } from './components/projects/GbcsProject';
 
 type Page = 'home' | 'projects' | 'about' | 'forfun' | 'project-detail';
@@ -74,6 +75,8 @@ export default function App() {
         return <FocusZoneBraceletProject onBack={handleBackToProjects} />;
       case 'infosci103-phantom-friend':
         return <Infosci103Project onBack={handleBackToProjects} />;
+      case 'infosci103-final':
+        return <Infosci103FinalProject onBack={handleBackToProjects} />;
       case 'gbcs-internship':
         return <GbcsProject onBack={handleBackToProjects} />;
       default:

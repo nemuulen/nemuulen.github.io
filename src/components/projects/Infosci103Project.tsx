@@ -11,7 +11,7 @@ interface Infosci103ProjectProps {
 export function Infosci103Project({ onBack }: Infosci103ProjectProps) {
   const projectData: ProjectDetailData = {
     title: "“Phantom Friend” or “Just a Box with Information”",
-    subtitle: "INFOSCI103 Final Presentation",
+    subtitle: "INFOSCI103 Midterm Presentation",
     coverImage: "/images/projects/infosci103-ss.png",
     tags: [
       "HCI",
@@ -23,7 +23,7 @@ export function Infosci103Project({ onBack }: Infosci103ProjectProps) {
     timeline: "INFOSCI103",
 
     overview:
-      "Final presentation analyzing Pradhan, Findlater, and Lazar's 2019 study on how older adults personify and ontologically categorize smart speaker-based voice assistants. The presentation walks through the study's goals, methodology, and contributions, then opens discussion on how and why people attribute human traits to AI systems.",
+      "Midterm presentation analyzing Pradhan, Findlater, and Lazar's 2019 study on how older adults personify and ontologically categorize smart speaker-based voice assistants. The presentation walks through the study's goals, methodology, and contributions, then opens discussion on how and why people attribute human traits to AI systems.",
 
     sections: [
       {
@@ -88,7 +88,7 @@ export function Infosci103Project({ onBack }: Infosci103ProjectProps) {
     documents: [
       {
         title: "Presentation Slides",
-        description: "Full INFOSCI103 final presentation deck",
+        description: "Full INFOSCI103 midterm presentation deck",
         fileName: "infosci103-phantom-friend-presentation.pdf",
       },
     ],

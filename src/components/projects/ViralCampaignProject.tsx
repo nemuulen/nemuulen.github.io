@@ -44,6 +44,27 @@ export function ViralCampaignProject({ onBack }: ViralCampaignProjectProps) {
                 mandate, where attention has to be earned rather than bought
               </li>
             </ul>
+            <p className="mt-3 mb-2">
+              For UNFAO, our team "Alpha team" tackled a genuinely unglamorous brief: increasing
+              consumption of organ meat among urban Mongolian children and young people, a food that
+              is highly nutritious and cheap but widely avoided. Survey work put the objections
+              squarely on sensory and social grounds - smell (48.4%), taste (41.9%), appearance, and
+              a lingering perception of it as poor people's food.
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                Set SMART targets - double consumption frequency over two months via 4-8 social
+                content pieces a month plus one live event
+              </li>
+              <li>
+                Built the campaign on a full SWOT analysis, leaning on real strengths: high B-vitamin
+                content, low cost, wide availability, and appeal as a fitness protein source (64.5%)
+              </li>
+              <li>
+                Identified openings in school and kindergarten menus, street food, and promotion of
+                national cuisine to visiting tourists
+              </li>
+            </ul>
             <p className="mt-3">
               Moving between commercial and public-interest communication within a single competition
               demanded very different tones, success metrics, and creative strategies.
@@ -74,7 +95,13 @@ export function ViralCampaignProject({ onBack }: ViralCampaignProjectProps) {
     ],
 
     links: [],
-    documents: [],
+    documents: [
+      {
+        title: "UNFAO Campaign Deck",
+        description: "Alpha team pitch: SMART goals, SWOT analysis and campaign plan (Mongolian)",
+        fileName: "viral-unfao-campaign.pdf",
+      },
+    ],
     gallery: ["/images/projects/campaign-ss.png"],
   };
 
