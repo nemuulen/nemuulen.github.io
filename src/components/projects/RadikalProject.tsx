@@ -15,7 +15,7 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
   const projectData: ProjectDetailData = {
     title: "RADIKAL",
     subtitle: "AI-Powered Chinese Character Learning App",
-    coverImage: "/images/projects/radikal-banner.png",
+    coverImage: "/images/projects/radikal.png",
     tags: [
       "React Native",
       "Expo",
@@ -283,6 +283,7 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
     ],
 
     gallery: [
+      "/images/projects/radikal-banner.png",
       "/images/projects/radikal-ui-1.png",
       "/images/projects/radikal-ui-2.png",
       "/images/projects/radikal-ui-3.png",

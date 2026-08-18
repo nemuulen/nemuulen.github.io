@@ -13,6 +13,7 @@ export function Infosci103FinalProject({ onBack }: Infosci103FinalProjectProps) 
   const projectData: ProjectDetailData = {
     title: "Unmasking Depression",
     subtitle: "INFOSCI103 Final Presentation | Social Computing",
+    coverImage: "/images/projects/unmaskingdepression.png",
     tags: [
       "Social Computing",
       "Research Design",

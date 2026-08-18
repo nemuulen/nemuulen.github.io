@@ -15,7 +15,7 @@ export function IotProject({ onBack }: IotProjectProps) {
   const projectData: ProjectDetailData = {
     title: "Interaction & Physical Computing",
     subtitle: "INFOSCI201 | Arduino & Unity",
-    coverImage: "/images/projects/infosci201-midterm.png",
+    coverImage: "/images/projects/infosci201-final.png",
     tags: [
       "Arduino",
       "C++",
