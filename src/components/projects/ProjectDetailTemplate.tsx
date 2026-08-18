@@ -23,7 +23,8 @@ export interface ProjectDetailData {
   // Project Info
   title: string;
   subtitle?: string;
-  coverImage: string;
+  /** Optional. When omitted the hero cover image block is not rendered. */
+  coverImage?: string;
   tags: string[];
   timeline?: string;
   award?: string;
@@ -115,18 +116,20 @@ export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplatePro
           </motion.div>
 
           {/* Cover Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-2xl overflow-hidden shadow-2xl mb-12"
-          >
-            <img
-              src={data.coverImage}
-              alt={data.title}
-              className="w-full h-auto object-cover"
-            />
-          </motion.div>
+          {data.coverImage && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="rounded-2xl overflow-hidden shadow-2xl mb-12"
+            >
+              <img
+                src={data.coverImage}
+                alt={data.title}
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+          )}
         </div>
       </section>
 

@@ -10,7 +10,8 @@ export interface Project {
     | "others"
     | "all";
   tags: string[];
-  image: string;
+  /** Optional. When omitted the card renders a neutral branded placeholder. */
+  image?: string;
   demoUrl?: string;
   githubUrl?: string;
   featured: boolean;
@@ -35,8 +36,6 @@ export const projects: Project[] = [
     ],
     image:
       "/images/projects/radikal.png",
-    demoUrl: "https://example.com/radikal-demo",
-    githubUrl: "https://github.com/yourusername/radikal",
     featured: true,
     timeline: "Apr 2025 - Present",
     funding: "¥15,000 CNY Seed Funding",
@@ -45,7 +44,7 @@ export const projects: Project[] = [
     id: "challo",
     title: "Challo",
     description:
-      "Community building and wellbeing initiative developed as a Millennium Fellow, which will be further developed as a personal project. ",
+      "Community building and wellbeing initiative developed as a Millennium Fellow, selected from 60,000+ applicants worldwide through UN Academic Impact and the Millennium Campus Network.",
     category: "app",
     tags: [
       "React Native",
@@ -55,12 +54,8 @@ export const projects: Project[] = [
       "Community Building",
       "Web design",
     ],
-    image:
-      "/images/projects/challo.png",
-    demoUrl: "https://example.com/challo-demo",
-    githubUrl: "https://github.com/yourusername/challo",
     featured: false,
-    timeline: "Aug 2025 - Dec 2025",
+    timeline: "Aug 2025 - Present",
     award: "UN Millennium Fellowship Certificate",
   },
   {
@@ -78,8 +73,6 @@ export const projects: Project[] = [
     ],
     image:
       "/images/projects/aid-ai-ss.png",
-    demoUrl: "https://example.com/aid-ai-demo",
-    githubUrl: "https://github.com/yourusername/aid-ai",
     featured: false,
     timeline: "Jan 2024",
     award: "2nd Prize - DKU Hackathon",
@@ -101,7 +94,7 @@ export const projects: Project[] = [
       "https://sites.duke.edu/intersections/files/2023/09/a-journal-of-language-culture-and-ideas.jpg",
     demoUrl: "https://sites.duke.edu/intersections/",
     featured: true,
-    timeline: "Sep 2024 - Present",
+    timeline: "Aug 2024 - Dec 2025",
   },
   {
     id: "viral-campaign",
@@ -117,9 +110,8 @@ export const projects: Project[] = [
     ],
     image:
       "/images/projects/campaign-ss.png",
-    demoUrl: "https://example.com/campaign-showcase",
     featured: false,
-    timeline: "Jun 2023 - Jul 2023",
+    timeline: "Jun 2024 - Jul 2024",
     award: "3rd Place - 500,000 MNT Prize",
   },
   {
@@ -176,29 +168,24 @@ export const projects: Project[] = [
     image:
       "/images/projects/cs208-ss.png",
     demoUrl: "https://bilguuns.my.canva.site/cs208-nemuulen-portfolio",
-    githubUrl:
-      "https://github.com/yourusername/computer-graphics",
     featured: false,
     timeline: "Fall 2024",
   },
   {
     id: "iot-project",
-    title: "Physical Computing (Arduino & Unity)",
+    title: "Interaction & Physical Computing",
     description:
-      "Designed and prototyped interactive Arduino-based devices.",
+      "Two Arduino builds for INFOSCI201: an infrared-controlled ambient smart lamp with live temperature and light readout, and a two-player horse race game where physical controls drive a Unity scene over serial.",
     category: "class",
     tags: [
-      "Arduino UNO",
-      "Sensors",
-      "C##",
+      "Arduino",
+      "C++",
       "Unity",
+      "Sensors",
+      "Physical Computing",
     ],
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop",
-    demoUrl: "https://example.com/iot-showcase",
-    githubUrl: "https://github.com/yourusername/iot-project",
     featured: false,
-    timeline: "Spring 2024",
+    timeline: "INFOSCI201",
   },
   {
     id: "cs311-chatroom",
@@ -232,10 +219,26 @@ export const projects: Project[] = [
       "Product Design",
       "UI/UX Design",
     ],
-    image: "/images/projects/upick-app-ss.png",
     githubUrl: "https://github.com/nemuulen/upick",
     featured: true,
-    timeline: "Jul 2026 - Present",
+    timeline: "Aug 2026 - Present",
+  },
+  {
+    id: "gbcs-internship",
+    title: "GBCS Group SkyIT - AI Web Development",
+    description:
+      "Ongoing remote internship architecting and building responsive, high-performance client websites using generative AI for custom assets, primarily on Hostinger's WordPress AI Builder.",
+    category: "web",
+    tags: [
+      "WordPress",
+      "Generative AI",
+      "Web Development",
+      "UI/UX Testing",
+      "Hostinger",
+    ],
+    demoUrl: "https://gbcs.com",
+    featured: false,
+    timeline: "Feb 2025 - Present",
   },
   {
     id: "focus-zone-bracelet",

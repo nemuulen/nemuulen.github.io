@@ -14,28 +14,37 @@ export function ChalloProject({ onBack }: ChalloProjectProps) {
   const projectData: ProjectDetailData = {
     title: "Challo",
     subtitle: "Community Building & Wellbeing Initiative",
-    coverImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600&h=900&fit=crop",
     tags: ["React Native", "Figma", "UI/UX Design", "Social Impact", "Community Building"],
-    timeline: "Aug 2025 - Dec 2025",
+    timeline: "Aug 2025 - Present",
     award: "UN Millennium Fellowship",
-    
-    overview: "Updating Soon - Detailed information about this project will be added here.",
-    
+
+    overview:
+      "Challo is a community building and wellbeing initiative founded during the Millennium Fellowship, a civic leadership program run by United Nations Academic Impact and the Millennium Campus Network. The project explores how gamified challenges, streaks, and small communities can support everyday wellbeing habits, and is being carried forward as a personal project.",
+
     sections: [
       {
-        title: "Project Goals",
-        content: <p>Updating Soon</p>,
+        title: "The Millennium Fellowship",
+        content: (
+          <p>
+            Selected as a Millennium Fellow from over 60,000 applicants worldwide through United
+            Nations Academic Impact and the Millennium Campus Network. The fellowship combined
+            structured civic leadership training with webinars led by UN leaders, which shaped the
+            project management and social impact strategy behind Challo.
+          </p>
+        ),
       },
       {
-        title: "UN Millennium Fellowship",
-        content: <p>Updating Soon</p>,
-      },
-      {
-        title: "Community Impact",
-        content: <p>Updating Soon</p>,
+        title: "Design & Prototyping",
+        content: (
+          <p>
+            Built interactive prototypes for the digital wellness platform using Figma and React
+            Native, covering challenge programs, streaks and badges, leaderboards, and community
+            groups.
+          </p>
+        ),
       },
     ],
-    
+
     links: [],
     documents: [],
     gallery: [],

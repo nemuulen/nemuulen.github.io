@@ -55,10 +55,10 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             ))}
             
             <div className="flex items-center gap-4 ml-4 pl-4 border-l border-[#E2E8F0]">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169] transition-colors duration-300">
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169] transition-colors duration-300">
                 <Github className="w-4 h-4" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169] transition-colors duration-300">
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169] transition-colors duration-300">
                 <Linkedin className="w-4 h-4" />
               </a>
               <a href={`mailto:${personalInfo.email}`} className="text-[#94A3B8] hover:text-[#012169] transition-colors duration-300">
@@ -101,10 +101,10 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
               ))}
               
               <div className="flex items-center gap-4 pt-3 border-t border-[#E2E8F0]">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169]">
+                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169]">
                   <Github className="w-4 h-4" />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169]">
+                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#94A3B8] hover:text-[#012169]">
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a href={`mailto:${personalInfo.email}`} className="text-[#94A3B8] hover:text-[#012169]">

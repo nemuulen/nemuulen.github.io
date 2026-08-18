@@ -21,9 +21,15 @@ export function Hero({
   useEffect(() => {
     const interval = setInterval(() => {
       setFlipped((prev) => !prev);
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // Both faces share one class string so the circle mask, border and size
+  // are guaranteed to be identical on the front and the back.
+  const faceClasses =
+    "absolute inset-0 w-full h-full rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-white";
+  const imgClasses = "w-full h-full object-cover object-center";
 
   return (
     <section className="min-h-screen flex items-center pt-12 pb-6 px-6 lg:px-12 bg-white">
@@ -134,28 +140,32 @@ export function Hero({
               >
                 {/* Front side - icon */}
                 <div
-                  className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10"
-                  style={{ backfaceVisibility: "hidden" }}
+                  className={faceClasses}
+                  style={{
+                    backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
+                  }}
                 >
                   <img
                     src="/images/nemuulen-icon.png"
-                    alt="Nemuulen Togtbaatar icon"
-                    className="w-full h-full object-cover"
+                    alt="Illustrated avatar of Nemuulen Togtbaatar"
+                    className={imgClasses}
                   />
                 </div>
 
                 {/* Back side - profile photo */}
                 <div
-                  className="absolute inset-0 rounded-full overflow-hidden border-4 border-[#012169] shadow-2xl bg-gradient-to-br from-[#012169]/10 to-[#00539B]/10"
+                  className={faceClasses}
                   style={{
                     backfaceVisibility: "hidden",
+                    WebkitBackfaceVisibility: "hidden",
                     transform: "rotateY(180deg)",
                   }}
                 >
                   <img
                     src="/images/nemuulen-profile.jpg"
                     alt="Nemuulen Togtbaatar"
-                    className="w-full h-full object-cover"
+                    className={imgClasses}
                   />
                 </div>
               </motion.div>

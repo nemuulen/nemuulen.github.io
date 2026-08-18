@@ -16,7 +16,7 @@ export function ViralCampaignProject({ onBack }: ViralCampaignProjectProps) {
     subtitle: "Creative Campus Marketing Competition",
     coverImage: "/images/projects/campaign-ss.png",
     tags: ["Marketing", "Video Editing", "Adobe Premiere Pro", "Campaign Management"],
-    timeline: "Jun 2023 - Jul 2023",
+    timeline: "Jun 2024 - Jul 2024",
     award: "3rd Place - 500,000 MNT Prize",
 
     overview: "Competed with marketing professionals at a 2-stage campaign pitching competition hosted by Viral Agency, pitching original marketing campaigns for Coca-Cola and UNFAO Mongolia. Earned 3rd place and a 500,000 MNT prize.",

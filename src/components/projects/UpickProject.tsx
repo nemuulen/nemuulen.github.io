@@ -12,9 +12,8 @@ export function UpickProject({ onBack }: UpickProjectProps) {
   const projectData: ProjectDetailData = {
     title: "Upick",
     subtitle: "Pin. Identify. Comment. Know.",
-    coverImage: "/images/projects/upick-app-ss.png",
     tags: ["React", "Vite", "Supabase", "Product Design", "UI/UX Design"],
-    timeline: "Jul 2026 - Present",
+    timeline: "Aug 2026 - Present",
 
     overview:
       "Upick is a Mongolia-first local discovery, reviews, events, and merchant promotion platform. It helps people discover restaurants, cafes, spas, entertainment venues, and camps/getaways through community reviews, saved places, badges, and verified business info. Co-founded and led development of the platform, designing the product architecture, user experience, and core recommendation flows from concept to a functional prototype.",
@@ -76,7 +75,7 @@ export function UpickProject({ onBack }: UpickProjectProps) {
       },
     ],
     documents: [],
-    gallery: ["/images/projects/upick-app-ss.png", "/images/projects/upick-logo.png"],
+    gallery: [],
   };
 
   return <ProjectDetailTemplate data={projectData} onBack={onBack} />;

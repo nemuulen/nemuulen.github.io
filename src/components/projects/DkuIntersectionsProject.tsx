@@ -16,7 +16,7 @@ export function DkuIntersectionsProject({ onBack }: DkuIntersectionsProjectProps
     subtitle: "University Website Redesign & Maintenance",
     coverImage: "https://sites.duke.edu/intersections/files/2023/09/a-journal-of-language-culture-and-ideas.jpg",
     tags: ["WordPress", "Figma", "Web Design", "Graphic Design", "Web Management", "Canva"],
-    timeline: "Sep 2024 - Dec, 2025",
+    timeline: "Aug 2024 - Dec 2025",
     
     overview: "Intersections: A Journal of Language, Culture, and Ideas is an online magazine featuring writing in Chinese and English by members of the Duke Kunshan community.",
     

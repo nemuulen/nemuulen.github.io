@@ -21,12 +21,23 @@ export function ProjectCard({ project, index, onViewProject }: ProjectCardProps)
       <div className="h-full flex flex-col border border-[#E2E8F0] rounded-2xl overflow-hidden hover:border-[#012169] transition-all duration-300 bg-white shadow-sm hover:shadow-lg">
         
         <div className="relative overflow-hidden aspect-[16/10]">
-          <ImageWithFallback
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-          
+          {project.image ? (
+            <ImageWithFallback
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#012169] to-[#00539B]">
+              <span
+                style={{ fontFamily: "var(--font-script)" }}
+                className="text-white/90 text-5xl select-none"
+              >
+                {project.title.charAt(0)}
+              </span>
+            </div>
+          )}
+
           <div className="absolute top-3 left-3">
             <span className="px-2.5 py-1 bg-white/95 text-[#012169] text-xs uppercase tracking-wider rounded-full font-semibold">
               {project.category}

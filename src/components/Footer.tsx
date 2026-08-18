@@ -53,7 +53,7 @@ export function Footer() {
         >
           <div className="flex items-center gap-6">
             <a 
-              href="https://github.com" 
+              href={personalInfo.github}
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-2 text-xs font-medium text-[#64748B] hover:text-[#012169] transition-colors duration-300"
@@ -62,7 +62,7 @@ export function Footer() {
               GitHub
             </a>
             <a 
-              href="https://linkedin.com" 
+              href={personalInfo.linkedin}
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-2 text-xs font-medium text-[#64748B] hover:text-[#012169] transition-colors duration-300"

@@ -1,8 +1,46 @@
 import { motion } from 'motion/react';
-import { personalInfo, education, leadership, awards, workExperience } from '../data/personal';
-import { GraduationCap, Award, Users, Briefcase, MapPin, Mail, Phone, Download } from 'lucide-react';
+import {
+  personalInfo,
+  education,
+  ventures,
+  leadership,
+  volunteerWork,
+  awards,
+  certificates,
+  workExperience
+} from '../data/personal';
+import {
+  GraduationCap,
+  Award,
+  Users,
+  Briefcase,
+  MapPin,
+  Mail,
+  Phone,
+  Download,
+  Rocket,
+  Heart,
+  BadgeCheck,
+  ArrowRight
+} from 'lucide-react';
 
-export function About() {
+interface AboutProps {
+  onViewProject?: (projectId: string) => void;
+}
+
+export function About({ onViewProject }: AboutProps) {
+  /** Small inline link rendered on any entry that has a matching project page. */
+  const SeeMore = ({ projectId }: { projectId?: string }) =>
+    projectId && onViewProject ? (
+      <button
+        onClick={() => onViewProject(projectId)}
+        className="group/see inline-flex items-center gap-1 mt-2 text-xs font-semibold text-[#012169] hover:text-[#00539B] transition-colors"
+      >
+        See more
+        <ArrowRight className="w-3 h-3 group-hover/see:translate-x-1 transition-transform duration-300" />
+      </button>
+    ) : null;
+
   return (
     <div className="min-h-screen pt-20 pb-10 px-6 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -13,8 +51,8 @@ export function About() {
           className="mb-8 text-center"
         >
           <h1 className="mb-3">
-            <span 
-              style={{ fontFamily: 'var(--font-script)' }} 
+            <span
+              style={{ fontFamily: 'var(--font-script)' }}
               className="text-[#012169] text-6xl md:text-7xl block mb-1"
             >
               Nemuulen
@@ -23,7 +61,7 @@ export function About() {
               Togtbaatar
             </span>
           </h1>
-          
+
           <p className="text-lg text-[#475569] max-w-3xl mx-auto mb-4 leading-relaxed">
             {personalInfo.bio}
           </p>
@@ -69,7 +107,7 @@ export function About() {
               Education
             </h2>
           </div>
-          
+
           <div className="border border-[#E2E8F0] rounded-2xl p-5 bg-white shadow-sm">
             <div className="flex flex-col md:flex-row md:items-start justify-between mb-3">
               <div>
@@ -84,14 +122,14 @@ export function About() {
                 <p className="text-sm font-semibold text-[#012169]">GPA: {education.gpa}</p>
               </div>
             </div>
-            
+
             <div className="pt-3 border-t border-[#E2E8F0] mb-3">
               <p className="text-xs font-semibold text-[#94A3B8] mb-2">Relevant Coursework</p>
               <p className="text-sm text-[#475569]">
                 {education.coursework.join(', ')}
               </p>
             </div>
-            
+
             {education.honors && (
               <div className="flex flex-wrap gap-2 pt-3 border-t border-[#E2E8F0]">
                 {education.honors.map((honor) => (
@@ -117,10 +155,10 @@ export function About() {
               Experience
             </h2>
           </div>
-          
+
           <div className="space-y-3">
             {workExperience.map((job, index) => (
-              <div 
+              <div
                 key={`${job.company}-${job.position}-${index}`}
                 className="border border-[#E2E8F0] rounded-2xl p-5 bg-white shadow-sm"
               >
@@ -140,12 +178,50 @@ export function About() {
                     </li>
                   ))}
                 </ul>
+                <SeeMore projectId={(job as { projectId?: string }).projectId} />
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* Leadership & Awards */}
+        {/* Ventures / Projects */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8"
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <Rocket className="w-5 h-5 text-[#012169]" />
+            <h2 className="text-2xl font-bold text-[#0F172A]">
+              Ventures
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            {ventures.map((venture, index) => (
+              <div
+                key={`${venture.organization}-${index}`}
+                className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm flex flex-col"
+              >
+                <h3 className="font-bold text-[#0F172A] text-sm">{venture.organization}</h3>
+                <p className="text-sm text-[#012169]">{venture.position}</p>
+                <span className="text-xs text-[#94A3B8]">{venture.timeline}</span>
+                <ul className="space-y-1 mt-2 flex-1">
+                  {venture.achievements.map((achievement, idx) => (
+                    <li key={idx} className="text-xs text-[#475569] flex items-start gap-2">
+                      <span className="w-1 h-1 bg-[#012169] rounded-full mt-1.5 flex-shrink-0" />
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+                <SeeMore projectId={venture.projectId} />
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Leadership & Volunteer */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <motion.section
             initial={{ opacity: 0, y: 20 }}
@@ -158,24 +234,26 @@ export function About() {
                 Leadership
               </h2>
             </div>
-            
+
             <div className="space-y-3">
               {leadership.map((role, index) => (
-                <div 
+                <div
                   key={`${role.organization}-${role.position}-${index}`}
                   className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
                 >
                   <h3 className="font-bold text-[#0F172A] text-sm">{role.position}</h3>
                   <p className="text-sm text-[#012169]">{role.organization}</p>
                   <span className="text-xs text-[#94A3B8]">{role.timeline}</span>
-                  <ul className="space-y-1 mt-2">
-                    {role.achievements.map((achievement, idx) => (
-                      <li key={idx} className="text-xs text-[#475569] flex items-start gap-2">
-                        <span className="w-1 h-1 bg-[#012169] rounded-full mt-1 flex-shrink-0" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
+                  {role.achievements.length > 0 && (
+                    <ul className="space-y-1 mt-2">
+                      {role.achievements.map((achievement, idx) => (
+                        <li key={idx} className="text-xs text-[#475569] flex items-start gap-2">
+                          <span className="w-1 h-1 bg-[#012169] rounded-full mt-1.5 flex-shrink-0" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               ))}
             </div>
@@ -187,16 +265,53 @@ export function About() {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 mb-4">
+              <Heart className="w-5 h-5 text-[#012169]" />
+              <h2 className="text-2xl font-bold text-[#0F172A]">
+                Volunteer Work
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {volunteerWork.map((role, index) => (
+                <div
+                  key={`${role.organization}-${role.position}-${index}`}
+                  className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
+                >
+                  <h3 className="font-bold text-[#0F172A] text-sm">{role.position}</h3>
+                  <p className="text-sm text-[#012169]">{role.organization}</p>
+                  <span className="text-xs text-[#94A3B8]">{role.timeline}</span>
+                  <ul className="space-y-1 mt-2">
+                    {role.achievements.map((achievement, idx) => (
+                      <li key={idx} className="text-xs text-[#475569] flex items-start gap-2">
+                        <span className="w-1 h-1 bg-[#012169] rounded-full mt-1.5 flex-shrink-0" />
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </motion.section>
+        </div>
+
+        {/* Awards & Certificates */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-2 mb-4">
               <Award className="w-5 h-5 text-[#012169]" />
               <h2 className="text-2xl font-bold text-[#0F172A]">
                 Awards
               </h2>
             </div>
-            
+
             <div className="space-y-3">
               {awards.map((award) => (
-                <div 
-                  key={award.title} 
+                <div
+                  key={award.title}
                   className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
                 >
                   <div className="flex items-start justify-between mb-1">
@@ -212,6 +327,34 @@ export function About() {
                   {award.description && (
                     <p className="text-xs text-[#64748B] mt-2">{award.description}</p>
                   )}
+                  <SeeMore projectId={award.projectId} />
+                </div>
+              ))}
+            </div>
+          </motion.section>
+
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <BadgeCheck className="w-5 h-5 text-[#012169]" />
+              <h2 className="text-2xl font-bold text-[#0F172A]">
+                Certificates
+              </h2>
+            </div>
+
+            <div className="space-y-3">
+              {certificates.map((cert) => (
+                <div
+                  key={cert.title}
+                  className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
+                >
+                  <h3 className="font-bold text-[#0F172A] text-sm">{cert.title}</h3>
+                  <p className="text-sm text-[#475569]">{cert.organization}</p>
+                  <span className="text-xs text-[#94A3B8]">{cert.year}</span>
+                  <SeeMore projectId={(cert as { projectId?: string }).projectId} />
                 </div>
               ))}
             </div>
@@ -223,25 +366,27 @@ export function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="mb-8"
         >
           <h2 className="text-2xl font-bold text-[#0F172A] mb-4">
             Skills & Expertise
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {[
               { category: 'Programming', skills: personalInfo.skills.programming },
-              { category: 'Frameworks', skills: personalInfo.skills.frameworks },
-              { category: 'Design', skills: personalInfo.skills.design },
-              { category: 'Tools', skills: personalInfo.skills.tools },
-              { category: 'Languages', skills: personalInfo.skills.languages }
+              { category: 'Tools & Technologies', skills: personalInfo.skills.tools },
+              { category: 'Design & Media', skills: personalInfo.skills.design },
+              { category: 'Languages', skills: personalInfo.skills.languages },
+              { category: 'Soft Skills', skills: personalInfo.skills.soft },
+              { category: 'Interests', skills: personalInfo.interests }
             ].map((skillGroup) => (
               <div key={skillGroup.category}>
                 <p className="text-xs font-semibold text-[#94A3B8] mb-2">{skillGroup.category}</p>
                 <div className="flex flex-wrap gap-2">
                   {skillGroup.skills.map((skill) => (
-                    <span 
-                      key={skill} 
+                    <span
+                      key={skill}
                       className="text-xs px-3 py-1.5 border border-[#E2E8F0] rounded-md text-[#475569] hover:border-[#012169] hover:bg-[#012169]/5 transition-all duration-300"
                     >
                       {skill}
