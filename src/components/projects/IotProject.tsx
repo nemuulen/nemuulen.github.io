@@ -33,7 +33,7 @@ export function IotProject({ onBack }: IotProjectProps) {
 
     sections: [
       {
-        title: "Midterm — Interactive Desk Lamp",
+        title: "Midterm - Interactive Desk Lamp",
         content: (
           <div>
             <p className="mb-3">
@@ -65,7 +65,7 @@ export function IotProject({ onBack }: IotProjectProps) {
         ),
       },
       {
-        title: "Final — Shagai Racing Game",
+        title: "Final - Shagai Racing Game",
         content: (
           <div>
             <p className="mb-3">
@@ -103,7 +103,7 @@ export function IotProject({ onBack }: IotProjectProps) {
         ),
       },
       {
-        title: "Arduino ↔ Unity Architecture",
+        title: "Arduino to Unity Architecture",
         content: (
           <div>
             <p className="mb-3">
