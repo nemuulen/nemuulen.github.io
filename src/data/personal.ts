@@ -2,7 +2,7 @@ export const personalInfo = {
   name: 'Nemuulen Togtbaatar',
   nickname: 'Nemka',
   title: 'Developer & Designer',
-  bio: 'Interdisciplinary Computation & Design student at Duke Kunshan University specializing in human-centered technology. Proven expertise in AI-driven web development, UI/UX, and user research. Adept at leading technical initiatives, from architecting high-performance digital platforms to managing cross-functional teams. Skilled in Python, C++, and Java, with a track record of delivering innovative, user-centered solutions through prototyping and data-driven insights. Committed to bridging technical rigor with creative, high-impact digital solutions.',
+  bio: 'Interdisciplinary senior-year Computation & Design student at Duke Kunshan University specializing in human-centered technology. Product-driven developer adept at taking complex user workflows and simplifying them into intuitive, high-impact digital solutions through structured discovery, user research, and iterative design. Proven track record in leading end-to-end product development and scalable system architecture. Skilled in Python, C++, and Java, with a commitment to delivering impactful technology.',
   email: 'nt152@duke.edu',
   phone: '+86 19984930324',
   location: 'Kunshan, Jiangsu, China',
@@ -11,9 +11,9 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/nemuulen-togtbaatar-321448300/',
   skills: {
     programming: ['Python', 'Java', 'C++', 'HTML', 'JavaScript', 'C#', 'CSS'],
-    tools: ['GitHub', 'WordPress', 'Xcode', 'Microsoft 365', 'Power BI', 'Arduino', 'Unity'],
+    tools: ['React Native', 'Supabase', 'GitHub', 'WordPress', 'Power BI', 'Arduino', 'Unity'],
     design: ['Adobe Illustrator', 'Adobe Premiere Pro', 'Figma', 'Canva', '3D Design', 'UI/UX Design'],
-    languages: ['English (Proficient)', 'Mandarin Chinese (Advanced Intermediate)', 'Mongolian (Native)'],
+    languages: ['English (Proficient)', 'Mandarin Chinese (Upper-Intermediate)', 'Mongolian (Native)'],
     soft: ['Time Management', 'Responsibility', 'Leadership', 'Teamwork', 'Growth Mindset', 'Teaching']
   },
   interests: ['Calligraphy', 'Cooking', 'Photography', 'Volleyball', 'Traveling']
@@ -21,7 +21,7 @@ export const personalInfo = {
 
 export const education = {
   institution: 'Duke Kunshan University (DKU) & Duke University',
-  degree: 'Bachelor of Science in Computation & Design',
+  degree: 'Dual Degree: B.S. in Computation & Design (DKU) and B.A. in Interdisciplinary Studies (Duke University)',
   track: 'Computer Science Track',
   location: 'Kunshan, Jiangsu, China',
   timeline: 'Expected May 2027',
@@ -31,12 +31,11 @@ export const education = {
     'Digital Design',
     'Multivariable Calculus',
     'Creativity and Entrepreneurship',
-    'Computer Organization and Programming',
     'Computer Graphics',
     'Modelling and Predicting',
-    'Discrete Mathematics for Computer Science',
     'Interaction and Physical Computing',
-    'Data Visualization and Information Aesthetics'
+    'Data Visualization and Information Aesthetics',
+    'Design and Analysis of Algorithms'
   ],
   honors: ['Dean\'s List (2 semesters)']
 };
@@ -50,40 +49,31 @@ export const workExperience = [
     projectId: 'radikal',
     responsibilities: [
       'Conduct a mixed-methods study evaluating RADIKAL, an AI-powered Chinese character learning platform, with DKU students in 100- and 200-level Chinese courses',
-      'Analyze how AI-supported personalization, mnemonic scaffolding, and gamification influence learning and self-regulated learning',
       'Design and administer pre/post-tests, surveys, reflection journals, and interviews to assess learning outcomes, engagement, and student experience',
-      'Collaborate with faculty and student developers to translate research findings into improvements in the platform and Chinese language pedagogy'
+      'Synthesize quantitative pre/post-test metrics, survey responses, and user interview data to translate findings into product improvements'
     ]
   },
   {
-    position: 'Program Manager',
+    position: 'Program Manager & Counselor',
     company: 'EduNomad LLC',
+    externalUrl: 'https://edunomad.mn',
     location: 'Ulaanbaatar, Mongolia (Remote)',
     timeline: 'Jul 2025 - Present',
     responsibilities: [
-      'Oversee a team of 5 university application counselors supporting 30 students, reviewing counselor reports and monitoring student progress and application outcomes',
-      'Develop lesson plans, counseling frameworks, and program strategies to improve the quality and consistency of student guidance'
+      'Architected core operational frameworks, tracking systems, and counseling roadmaps for 5 counselors and 30+ students, standardizing reporting workflows and accelerating program execution',
+      'Guided 30+ students 1-on-1 through university selection, application essays, and personalized admissions strategy for international bachelor\'s programs'
     ]
   },
   {
     position: 'AI Web Development Intern',
     company: 'GBCS Group LTD SkyIT',
+    externalUrl: 'https://gbcsgroup.com/',
     location: 'Calgary, Canada (Remote)',
     timeline: 'Mar 2025 - Jun 2026',
     projectId: 'gbcs-internship',
     responsibilities: [
-      'Utilized generative AI to create custom assets, architect and build responsive, high-performance websites primarily on Hostinger\'s WordPress AI Builder',
-      'Conducted rigorous testing to ensure the output meets professional standards of UX/UI',
-      'Managed and optimized the WordPress ecosystem, including plugin integration, theme configuration, and back-end settings to ensure a seamless live environment'
-    ]
-  },
-  {
-    position: 'University Application Counselor',
-    company: 'EduNomad LLC & Ger Community',
-    location: 'Ulaanbaatar, Mongolia (Remote, part-time)',
-    timeline: 'Jun 2025 - Jun 2026',
-    responsibilities: [
-      'Guided over 30 students to apply for international bachelor\'s programs, providing personalized counseling on university selection, application essays, and admissions strategy'
+      'Architected and deployed a responsive company introduction website on Hostinger\'s WordPress, executing mobile and tablet orientation fixes and visual optimization to ensure cross-device consistency',
+      'Completed continuous UI/UX reviews in direct collaboration with company executive leadership and iterative refinements to eliminate flaws and improve delivery of core messages'
     ]
   },
   {
@@ -92,18 +82,19 @@ export const workExperience = [
     location: 'Kunshan, China (Onsite)',
     timeline: 'Jun 2025 - May 2026',
     responsibilities: [
-      'Collected data on students\' AI-generated multimedia content',
-      'Analyzed student perceptions of AI\'s impact on human creativity and authorship'
+      'Collected 100+ rows of qualitative data on student-generated AI multimedia content',
+      'Evaluated student perceptions of AI\'s impact on human creativity and authorship'
     ]
   },
   {
     position: 'Production & Marketing Intern',
     company: 'Viral Agency',
+    externalUrl: 'https://viral.mn',
     location: 'Ulaanbaatar, Mongolia (Onsite)',
     timeline: 'Jun 2024 - Jul 2024',
     projectId: 'viral-campaign',
     responsibilities: [
-      'Produced 5 digital content pieces for major Mongolian corporations using Adobe Premiere Pro',
+      'Produced 4 short product advertisements, company introduction reels, and a YouTube video for major Mongolian corporations using Adobe Premiere Pro',
       'Assisted in brainstorming and drafting marketing campaign proposals for major projects'
     ]
   },
@@ -114,9 +105,9 @@ export const workExperience = [
     timeline: 'Aug 2024 - Dec 2025',
     projectId: 'dku-intersections',
     responsibilities: [
-      'Developed and maintained club website using WordPress, updating 20+ pages with student articles and multimedia content',
-      'Organized campus-wide showcases to attract writers and readers',
-      'Designed promotional posters and digital content using Canva and Adobe Illustrator'
+      'Developed and maintained the journal website using WordPress, uploading 30+ student articles',
+      'Organized 6 campus-wide showcases to attract writers and readers',
+      'Designed 30+ promotional posters and digital content using Canva and Adobe Illustrator'
     ]
   },
   {
@@ -126,8 +117,8 @@ export const workExperience = [
     timeline: 'Jun 2022 - Jul 2025',
     responsibilities: [
       'Taught high-school-level mathematics to nearly 150 middle school students for exam preparation',
-      'Administered monthly public mock exams for 5th and 8th graders',
-      'Assisted in marketing through phone outreach to prospective students and families'
+      'Proctored 10+ monthly public mock exams with over 100 students each time',
+      'Assisted in marketing and student acquisition through structured phone outreach to prospective families'
     ]
   },
   {
@@ -136,9 +127,9 @@ export const workExperience = [
     location: 'Kunshan, China (Onsite)',
     timeline: 'Aug 2023 - Dec 2024',
     responsibilities: [
-      'Managed 3-4 associates per shift to ensure safe environments and quality service',
-      'Assigned and recorded shifts for over 40 fellow associates to ensure efficient logistics',
-      'Communicated with the department head and took meeting minutes weekly'
+      'Managed 3-4 associates per shift to ensure safe operations and quality service',
+      'Scheduled and logged shifts for over 40 associates to optimize shift logistics',
+      'Handled conflicts and reported property damage and malfunctions'
     ]
   }
 ];
@@ -151,20 +142,19 @@ export const ventures = [
     projectId: 'radikal',
     achievements: [
       'Secured ¥15,000 CNY in seed funding through competitive pitch presentation',
-      'Designed and developed a cross-platform app using React Native with a Supabase backend',
-      'Integrated AI features for personalized learning paths and story-making to enhance user engagement',
-      'Conducted user testing with 100+ students, iterating on feedback to improve app functionality and design'
+      'Designed a cross-platform React Native/Supabase app featuring AI-personalized learning methods and gamified learning features, reaching 200+ users',
+      'Conducted iterative user research and usability testing across 120+ students to optimize feature design, UI/UX, and user engagement'
     ]
   },
   {
-    organization: 'Challo: Community Building & Wellbeing Initiative',
+    organization: 'Wavezz (formerly Challo): Community Building & Wellbeing Initiative',
     position: 'Founder',
     timeline: 'Aug 2025 - Present',
-    projectId: 'challo',
+    projectId: 'wavezz',
     achievements: [
-      'Selected as Millennium Fellow from 60,000+ applicants worldwide through United Nations Academic Impact and Millennium Campus Network civic leadership program',
-      'Built interactive prototypes using Figma and React Native for a digital wellness platform',
-      'Engaged in webinars with UN leaders to develop project management and social impact strategies'
+      'Selected as Millennium Fellow from 60,000+ applicants worldwide through United Nations Academic Impact and Millennium Campus Network',
+      'Completed 10 leadership sessions on project management, budgeting, and strategic goal setting',
+      'Conducted problem-discovery interviews with 20 students and market analysis of 15 productivity apps, translating key user pain points into 6 beta-launch features'
     ]
   },
   {
@@ -177,6 +167,16 @@ export const ventures = [
       'Designed the product architecture, user experience, and core recommendation flows, translating user research into technical and product decisions',
       'Led the product from concept to functional prototype, coordinating development and iterating on features based on user feedback'
     ]
+  },
+  {
+    organization: 'ThinkInsideTheBox: AI-Driven Ideation Platform',
+    position: 'Founder',
+    timeline: 'Sep 2026 - Present',
+    projectId: 'think-inside-the-box',
+    achievements: [
+      'Defined end-to-end product vision and designed a user-centric, constraint-based ideation framework',
+      'Architected AI-assisted planning features to transform creative concepts into viable business models'
+    ]
   }
 ];
 
@@ -184,20 +184,22 @@ export const leadership = [
   {
     organization: 'DKU Computer Science Club',
     position: 'Creative/Marketing Team Member',
+    externalUrl: 'https://hackdku.dkucs.com/',
     location: 'Kunshan, China',
     timeline: 'Feb 2026 - May 2026',
     achievements: [
-      'Assisted in organizing and planning HackDKU 2026, a campus-wide, 7-day hackathon',
-      'Merch and poster design on Canva and Figma; video editing on CapCut'
+      'Assisted in organizing and planning HackDKU 2026, a 7-day campuswide hackathon',
+      'Designed merchandise, posters, and video content via Canva, Figma, and CapCut'
     ]
   },
   {
     organization: 'DKU Mongolian Students\' Association',
     position: 'President',
+    externalUrl: 'https://www.linkedin.com/company/102154300/admin/dashboard',
     location: 'Kunshan, China',
     timeline: 'Aug 2024 - May 2025',
     achievements: [
-      'Organized 8 monthly events with over 50+ participants each to promote Mongolian culture',
+      'Organized 8 monthly cultural events with 50+ participants each to promote Mongolian heritage',
       'Collaborated with clubs to facilitate major campus events'
     ]
   },
@@ -208,7 +210,7 @@ export const leadership = [
     timeline: 'Aug 2023 - May 2024',
     achievements: [
       'Designed over 20 posters for advertisements, events, and presentations',
-      'Organized 4 creative challenges and workshops involving Apple, such as Swift workshops, guest talks, and a hackathon'
+      'Organized 4 creative challenges and Apple workshops, including Swift technical sessions and mini hackathons'
     ]
   },
   {
@@ -216,7 +218,9 @@ export const leadership = [
     position: 'Varsity Team Member',
     location: 'Kunshan, China',
     timeline: 'Aug 2023 - Dec 2024',
-    achievements: []
+    achievements: [
+      'Represented the university in athletic competitions, fostering teamwork, discipline, and execution under pressure'
+    ]
   }
 ];
 
@@ -250,11 +254,12 @@ export const awards = [
     year: 'Jan 2024',
     placement: '2nd Place',
     projectId: 'aid-ai',
-    description: 'Awarded 2nd place for developing an AI-powered emergency medical response app within 24 hours; collaborated with the team in Xcode to prototype, test, and integrate features.'
+    description: 'Awarded 2nd place for developing an AI emergency response web app within 24 hours; collaborated with the team to prototype, test, and integrate features.'
   },
   {
     title: '3rd Place, Creative Campus Marketing Competition',
     organization: 'Viral Agency',
+    externalUrl: 'https://viral.mn',
     year: 'Jul 2024',
     placement: '3rd Place',
     projectId: 'viral-campaign',
@@ -266,12 +271,14 @@ export const certificates = [
   {
     title: 'Wayfair AI Agent Engineering for Business Intelligence Externship',
     organization: 'Wayfair | Boston, Massachusetts (Remote)',
+    externalUrl: 'https://docs.google.com/presentation/d/1TQ-Wmw1btWm9ypZhXsbShzi1tiEskesURGEQ72-_bJM/edit?usp=sharing',
     year: 'Jun 2026 - Aug 2026',
     projectId: 'wayfair-externship'
   },
   {
-    title: 'Exhibition Certificate',
-    organization: 'Forum and Exhibition on Multimodality in Multilingual and Intercultural Education | Wuhan University',
-    year: 'Nov 2024'
+    title: 'Millennium Fellow',
+    organization: 'United Nations Academic Impact & Millennium Campus Network',
+    year: 'Jan 2026',
+    projectId: 'wavezz'
   }
 ];

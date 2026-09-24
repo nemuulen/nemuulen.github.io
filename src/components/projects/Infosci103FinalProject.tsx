@@ -77,6 +77,18 @@ export function Infosci103FinalProject({ onBack }: Infosci103FinalProjectProps) 
         ),
       },
       {
+        title: "Social Computing Frame",
+        content: (
+          <p>
+            We positioned the project within social computing: an interdisciplinary field connecting
+            technology and human behavior. That frame mattered because depression detection from
+            online social networks is not just a prediction problem; it also raises questions about
+            platform design, user interpretation, AI ethics, and the limits of what behavioral data
+            can responsibly reveal.
+          </p>
+        ),
+      },
+      {
         title: "Why Mongolia",
         content: (
           <div>

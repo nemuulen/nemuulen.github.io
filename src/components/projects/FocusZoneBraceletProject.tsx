@@ -74,6 +74,31 @@ export function FocusZoneBraceletProject({ onBack }: FocusZoneBraceletProjectPro
           </p>
         ),
       },
+      {
+        title: "Value Proposition Details",
+        content: (
+          <div>
+            <p className="mb-3">
+              The process book framed Synergy around three product promises that shaped the bracelet
+              concept:
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                <strong>Fashion plus technology</strong> - making a focus-support device that feels
+                stylish enough for everyday wear rather than purely utilitarian
+              </li>
+              <li>
+                <strong>User-focused design</strong> - prioritizing the needs, preferences, and daily
+                frustrations of customers who want help staying on task
+              </li>
+              <li>
+                <strong>Ease and convenience</strong> - reducing setup time and making the product
+                simple to integrate into study or work routines
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
 
     links: [],

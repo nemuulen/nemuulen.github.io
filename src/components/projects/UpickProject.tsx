@@ -16,16 +16,17 @@ export function UpickProject({ onBack }: UpickProjectProps) {
     timeline: "Aug 2026 - Present",
 
     overview:
-      "Upick is a Mongolia-first local discovery, reviews, events, and merchant promotion platform. It helps people discover restaurants, cafes, spas, entertainment venues, and camps/getaways through community reviews, saved places, badges, and verified business info. Co-founded and led development of the platform, designing the product architecture, user experience, and core recommendation flows from concept to a functional prototype.",
+      "Upick is a local recommendation platform for Mongolia inspired by the need for authentic, organic reviews. It helps people discover restaurants, cafes, spas, entertainment venues, and camps/getaways through community reviews, saved places, badges, and verified business info. Co-founded and led product vision, architecture, user experience, and technical requirements from qualitative user research.",
 
     sections: [
       {
         title: "My Role",
         content: (
           <p>
-            As co-founder, I designed the product architecture, user experience, and core recommendation flows,
-            translating user research into technical and product decisions. I led the product from concept to
-            functional prototype, coordinating development and iterating on features based on user feedback.
+            As co-founder, I defined the product vision and architecture to solve personal frustrations with
+            finding authentic local places in Mongolia through uncorrupted, organic reviews. I translated
+            qualitative user research into technical engineering requirements and coordinated cross-functional
+            development.
           </p>
         ),
       },

@@ -65,6 +65,31 @@ export function Cs311ChatroomProject({ onBack }: Cs311ChatroomProjectProps) {
           </div>
         ),
       },
+      {
+        title: "Assignment Scope & Demonstration",
+        content: (
+          <div>
+            <p className="mb-3">
+              The project was structured in two phases: first proving the socket-based chatroom with
+              multiple human clients, then adding an LLM client that could participate in the same
+              room. The assignment emphasized both implementation and demonstration, including
+              recorded videos for different room configurations.
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>Stage 1 demonstrations: two-human and three-human chat sessions</li>
+              <li>Stage 2 demonstrations: mixed human/LLM rooms and all-LLM rooms</li>
+              <li>
+                In-class guessing component comparing conversational patterns between human and AI
+                participants
+              </li>
+              <li>
+                Final package organized into source code, presentation slides, and demonstration
+                videos
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
 
     links: [

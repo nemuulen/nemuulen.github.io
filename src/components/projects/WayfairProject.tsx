@@ -14,12 +14,12 @@ export function WayfairProject({ onBack }: WayfairProjectProps) {
     subtitle: "AI Agent Engineering for Business Intelligence",
     coverImage:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop",
-    tags: ["AI Agents", "Business Intelligence", "Generative AI"],
+    tags: ["AI Agents", "Business Intelligence", "Market Intelligence", "Generative AI"],
     timeline: "Jun 2026 - Aug 2026",
     award: "Wayfair Externship Certificate",
 
     overview:
-      "A remote externship with Wayfair (Boston, Massachusetts) focused on AI Agent Engineering for Business Intelligence. The program explored how agentic AI workflows can be applied to real business intelligence problems, from data analysis to decision support, at enterprise scale.",
+      "A remote externship with Wayfair (Boston, Massachusetts) focused on AI Agent Engineering for Business Intelligence. My final project was a Rugs Market Intelligence AI Agent Demo: a connected set of agents designed to help Wayfair's rugs category team automate trend discovery, monitor competitors, and generate content ideas for shag rugs.",
 
     sections: [
       {
@@ -30,6 +30,61 @@ export function WayfairProject({ onBack }: WayfairProjectProps) {
             intelligence use cases - translating messy business questions into structured,
             agent-driven workflows that support faster and more reliable decision-making.
           </p>
+        ),
+      },
+      {
+        title: "Final Demo: Rugs Market Intelligence",
+        content: (
+          <div>
+            <p className="mb-3">
+              The final presentation brought multiple agents into one market intelligence workflow
+              for the rugs category team. The demo focused on shag rug trends, competitor pricing,
+              assortment monitoring, and brand-aligned content generation.
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                Search volume for "shag rug" was framed as growing 22% year over year, with spikes
+                around neutral high-pile and Moroccan geometric styles
+              </li>
+              <li>
+                Premium shag rug basket size increased when bundled with care-kit accessories such as
+                rug pads and stain-guard spray
+              </li>
+              <li>
+                Bold gradient and colour-block designs were positioned as emerging with the 25-35
+                audience through TikTok home-makeover signals
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "Agent System",
+        content: (
+          <div>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                <strong>Moodboard Generator:</strong> turns concise design prompts into AI-curated
+                visual moodboards for emerging rug styles
+              </li>
+              <li>
+                <strong>Trend Discovery Agent:</strong> analyzes social and design signals to produce
+                structured trend reports with visual evidence
+              </li>
+              <li>
+                <strong>Competitor Monitoring Agent:</strong> tracks e-commerce pricing, assortment
+                shifts, discounts, and catalog changes across home decor retailers
+              </li>
+              <li>
+                <strong>AI Insights & Content Agent:</strong> converts structured trend and competitor
+                data into brand-aligned marketing copy
+              </li>
+              <li>
+                <strong>Market Intelligence Dashboard:</strong> centralizes agent outputs into a live
+                command center for category decisions
+              </li>
+            </ul>
+          </div>
         ),
       },
       {
@@ -57,10 +112,43 @@ export function WayfairProject({ onBack }: WayfairProjectProps) {
           </p>
         ),
       },
+      {
+        title: "Future Improvements",
+        content: (
+          <div>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>Connect SKU performance metrics so trend signals can be tied to real sales data</li>
+              <li>Expand social media inputs for earlier trend discovery</li>
+              <li>Use predictive demand modeling inside the dashboard feed</li>
+              <li>Refine prompts for more brand-aligned and creative content suggestions</li>
+            </ul>
+          </div>
+        ),
+      },
     ],
 
-    links: [],
-    documents: [],
+    links: [
+      {
+        label: "Google Slides",
+        url: "https://docs.google.com/presentation/d/1TQ-Wmw1btWm9ypZhXsbShzi1tiEskesURGEQ72-_bJM/edit?usp=sharing",
+      },
+      {
+        label: "Workflow Folder",
+        url: "https://drive.google.com/drive/folders/1mCMJ0MJnRZ-rvbfMobIw9r2SfsYb-cbx?usp=sharing",
+      },
+    ],
+    documents: [
+      {
+        title: "Final Presentation",
+        description: "Wayfair Rugs Market Intelligence AI Agent demo slides",
+        fileName: "wayfair-final-presentation.pdf",
+      },
+      {
+        title: "Externship Certificate",
+        description: "Completion certificate issued on August 24, 2026",
+        fileName: "wayfair-externship-certificate.pdf",
+      },
+    ],
     gallery: [],
   };
 

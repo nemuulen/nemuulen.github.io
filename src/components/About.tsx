@@ -22,7 +22,8 @@ import {
   Rocket,
   Heart,
   BadgeCheck,
-  ArrowRight
+  ArrowRight,
+  ExternalLink
 } from 'lucide-react';
 
 interface AboutProps {
@@ -125,6 +126,29 @@ export function About({ onViewProject }: AboutProps) {
         </button>
       </div>
     ) : null;
+
+  const LinkedText = ({
+    children,
+    href,
+    className = ''
+  }: {
+    children: React.ReactNode;
+    href?: string;
+    className?: string;
+  }) =>
+    href ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`inline-flex items-center gap-1 hover:text-[#00539B] hover:underline ${className}`}
+      >
+        {children}
+        <ExternalLink className="w-3 h-3" aria-hidden />
+      </a>
+    ) : (
+      <span className={className}>{children}</span>
+    );
 
   return (
     <div className="min-h-screen pt-20 pb-10 px-6 lg:px-12 bg-white">
@@ -266,7 +290,11 @@ export function About({ onViewProject }: AboutProps) {
                 <div className="flex flex-col md:flex-row md:items-start justify-between mb-2">
                   <div>
                     <h3 className="font-bold text-[#0F172A]">{job.position}</h3>
-                    <p className="text-sm text-[#012169]">{job.company}</p>
+                    <p className="text-sm text-[#012169]">
+                      <LinkedText href={(job as { externalUrl?: string }).externalUrl}>
+                        {job.company}
+                      </LinkedText>
+                    </p>
                     <p className="text-xs text-[#94A3B8] mt-1">{job.location}</p>
                   </div>
                   <span className="text-xs text-[#94A3B8] mt-2 md:mt-0">{job.timeline}</span>
@@ -305,7 +333,11 @@ export function About({ onViewProject }: AboutProps) {
                 key={`${venture.organization}-${index}`}
                 className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm flex flex-col"
               >
-                <h3 className="font-bold text-[#0F172A] text-sm">{venture.organization}</h3>
+                <h3 className="font-bold text-[#0F172A] text-sm">
+                  <LinkedText href={(venture as { externalUrl?: string }).externalUrl}>
+                    {venture.organization}
+                  </LinkedText>
+                </h3>
                 <p className="text-sm text-[#012169]">{venture.position}</p>
                 <span className="text-xs text-[#94A3B8]">{venture.timeline}</span>
                 <ul className="space-y-1 mt-2 flex-1">
@@ -343,7 +375,11 @@ export function About({ onViewProject }: AboutProps) {
                   className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
                 >
                   <h3 className="font-bold text-[#0F172A] text-sm">{role.position}</h3>
-                  <p className="text-sm text-[#012169]">{role.organization}</p>
+                  <p className="text-sm text-[#012169]">
+                    <LinkedText href={(role as { externalUrl?: string }).externalUrl}>
+                      {role.organization}
+                    </LinkedText>
+                  </p>
                   <span className="text-xs text-[#94A3B8]">{role.timeline}</span>
                   {role.achievements.length > 0 && (
                     <ul className="space-y-1 mt-2">
@@ -355,6 +391,7 @@ export function About({ onViewProject }: AboutProps) {
                       ))}
                     </ul>
                   )}
+                  <SeeMore projectId={(role as { projectId?: string }).projectId} />
                 </div>
               ))}
             </div>
@@ -379,7 +416,11 @@ export function About({ onViewProject }: AboutProps) {
                   className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
                 >
                   <h3 className="font-bold text-[#0F172A] text-sm">{role.position}</h3>
-                  <p className="text-sm text-[#012169]">{role.organization}</p>
+                  <p className="text-sm text-[#012169]">
+                    <LinkedText href={(role as { externalUrl?: string }).externalUrl}>
+                      {role.organization}
+                    </LinkedText>
+                  </p>
                   <span className="text-xs text-[#94A3B8]">{role.timeline}</span>
                   <ul className="space-y-1 mt-2">
                     {role.achievements.map((achievement, idx) => (
@@ -389,6 +430,7 @@ export function About({ onViewProject }: AboutProps) {
                       </li>
                     ))}
                   </ul>
+                  <SeeMore projectId={(role as { projectId?: string }).projectId} />
                 </div>
               ))}
             </div>
@@ -423,7 +465,11 @@ export function About({ onViewProject }: AboutProps) {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-[#475569]">{award.organization}</p>
+                  <p className="text-sm text-[#475569]">
+                    <LinkedText href={(award as { externalUrl?: string }).externalUrl}>
+                      {award.organization}
+                    </LinkedText>
+                  </p>
                   <span className="text-xs text-[#94A3B8]">{award.year}</span>
                   {award.description && (
                     <p className="text-xs text-[#64748B] mt-2">{award.description}</p>
@@ -453,7 +499,11 @@ export function About({ onViewProject }: AboutProps) {
                   className="border border-[#E2E8F0] rounded-2xl p-4 bg-white shadow-sm"
                 >
                   <h3 className="font-bold text-[#0F172A] text-sm">{cert.title}</h3>
-                  <p className="text-sm text-[#475569]">{cert.organization}</p>
+                  <p className="text-sm text-[#475569]">
+                    <LinkedText href={(cert as { externalUrl?: string }).externalUrl}>
+                      {cert.organization}
+                    </LinkedText>
+                  </p>
                   <span className="text-xs text-[#94A3B8]">{cert.year}</span>
                   <SeeMore projectId={(cert as { projectId?: string }).projectId} />
                 </div>

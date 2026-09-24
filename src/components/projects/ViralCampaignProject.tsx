@@ -94,7 +94,12 @@ export function ViralCampaignProject({ onBack }: ViralCampaignProjectProps) {
       },
     ],
 
-    links: [],
+    links: [
+      {
+        label: "Viral Agency",
+        url: "https://viral.mn",
+      },
+    ],
     documents: [
       {
         title: "UNFAO Campaign Deck",

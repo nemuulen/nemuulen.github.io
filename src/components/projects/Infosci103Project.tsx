@@ -82,6 +82,30 @@ export function Infosci103Project({ onBack }: Infosci103ProjectProps) {
           </div>
         ),
       },
+      {
+        title: "Study Contributions",
+        content: (
+          <div>
+            <p className="mb-3">
+              The presentation highlighted three contributions from Pradhan et al.'s study:
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                A closer understanding of how older adults ontologically categorize voice assistants
+                in everyday home use
+              </li>
+              <li>
+                Design recommendations that account for whether a device is experienced as
+                object-like, human-like, or somewhere in between
+              </li>
+              <li>
+                A broader discussion connecting voice assistant personification to theories of
+                anthropomorphism and social roles
+              </li>
+            </ul>
+          </div>
+        ),
+      },
     ],
 
     links: [],

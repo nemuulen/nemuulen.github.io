@@ -26,7 +26,7 @@ export const projects: Project[] = [
     id: "radikal",
     title: "RADIKAL",
     description:
-      "Gamified, AI-powered app that turns Chinese character memorization into creative play through radical construction, personal memory notes, and AI-generated stories. Method validated with 66 learners; ¥15,000 CNY seed funded under DKU's Dii programme.",
+      "Gamified, AI-powered React Native/Supabase app that turns Chinese character memorization into creative play through personalized learning, radical construction, and AI-generated stories. Seed funded with ¥15,000 CNY, used by 200+ learners, and iterated through research with 120+ students.",
     category: "app",
     tags: [
       "React Native",
@@ -42,10 +42,10 @@ export const projects: Project[] = [
     funding: "¥15,000 CNY Seed Funding",
   },
   {
-    id: "challo",
-    title: "Challo",
+    id: "wavezz",
+    title: "Wavezz",
     description:
-      "Community building and wellbeing initiative developed as a Millennium Fellow, selected from 60,000+ applicants worldwide through UN Academic Impact and the Millennium Campus Network.",
+      "Community building and wellbeing initiative formerly known as Challo, developed as a Millennium Fellow after selection from 60,000+ applicants worldwide through UN Academic Impact and the Millennium Campus Network.",
     category: "app",
     tags: [
       "React Native",
@@ -55,9 +55,25 @@ export const projects: Project[] = [
       "Community Building",
       "Web design",
     ],
-    featured: false,
+    featured: true,
     timeline: "Aug 2025 - Present",
-    award: "UN Millennium Fellowship Certificate",
+    award: "UN Millennium Fellowship",
+  },
+  {
+    id: "think-inside-the-box",
+    title: "TOTB",
+    description:
+      "ThinkInsideTheBox is an AI-driven ideation platform that guides users from early concept generation into structured startup workflows through a user-centric, constraint-based framework and AI-assisted planning features.",
+    category: "app",
+    tags: [
+      "AI Product",
+      "Product Strategy",
+      "Ideation",
+      "Startup Tools",
+      "UX Architecture",
+    ],
+    featured: false,
+    timeline: "Sep 2026 - Present",
   },
   {
     id: "aid-ai",
@@ -94,7 +110,7 @@ export const projects: Project[] = [
     image:
       "https://sites.duke.edu/intersections/files/2023/09/a-journal-of-language-culture-and-ideas.jpg",
     demoUrl: "https://sites.duke.edu/intersections/",
-    featured: true,
+    featured: false,
     timeline: "Aug 2024 - Dec 2025",
   },
   {
@@ -111,6 +127,7 @@ export const projects: Project[] = [
     ],
     image:
       "/images/projects/campaign-ss.png",
+    demoUrl: "https://viral.mn",
     featured: false,
     timeline: "Jun 2024 - Jul 2024",
     award: "3rd Place - 500,000 MNT Prize",
@@ -131,7 +148,7 @@ export const projects: Project[] = [
     image:
       "https://github.com/nemuulen/INFOSCI301_Final_Project/raw/main/301_Nemuulen_Yiqing_Poster.png",
     demoUrl: "https://github.com/nemuulen/INFOSCI301_Final_Project",
-    featured: true,
+    featured: false,
     timeline: "Feb 2024 - May 2024",
   },
   {
@@ -214,11 +231,11 @@ export const projects: Project[] = [
     id: "upick",
     title: "Upick",
     description:
-      "Mongolia-first local discovery, reviews, events, and merchant promotion platform for restaurants, cafes, spas, and entertainment venues. Co-founded and led product architecture, UX, and recommendation flows from concept to functional mobile app.",
+      "Local recommendation platform for Mongolia inspired by the need for authentic, organic reviews. Co-founded and led product vision, architecture, UX, and technical requirements from qualitative user research.",
     category: "app",
     tags: [
-      "React",
-      "Vite",
+      "Product Architecture",
+      "User Research",
       "Supabase",
       "Product Design",
       "UI/UX Design",
@@ -231,7 +248,7 @@ export const projects: Project[] = [
     id: "gbcs-internship",
     title: "GBCS Group SkyIT - AI Web Development",
     description:
-      "Internship architecting and building responsive, high-performance company website primarily on Hostinger's WordPress Builder.",
+      "Internship architecting and deploying a responsive company introduction website on Hostinger's WordPress, with cross-device fixes, visual optimization, and executive-led UI/UX review cycles.",
     category: "web",
     tags: [
       "WordPress",
@@ -241,7 +258,7 @@ export const projects: Project[] = [
       "CSS",
     ],
     image: "/images/projects/gbcs-cover.png",
-    demoUrl: "https://gbcs.com",
+    demoUrl: "https://gbcsgroup.com/",
     featured: false,
     timeline: "Mar 2025 - Jun 2026",
   },

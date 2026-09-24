@@ -234,8 +234,12 @@ export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplatePro
               <motion.div
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="bg-white rounded-lg w-full flex flex-col"
-                style={{ maxWidth: '72rem', maxHeight: '90vh' }}
+                className="bg-white rounded-lg flex flex-col"
+                style={{
+                  width: 'min(96vw, 72rem)',
+                  height: 'min(90vh, 58rem)',
+                  maxHeight: '90vh',
+                }}
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Header */}
@@ -255,6 +259,7 @@ export function ProjectDetailTemplate({ data, onBack }: ProjectDetailTemplatePro
                 <iframe
                   src={selectedPdf}
                   className="flex-1 w-full"
+                  style={{ minHeight: 0 }}
                   title="PDF Preview"
                 />
               </motion.div>

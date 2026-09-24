@@ -61,6 +61,11 @@ export function IotProject({ onBack }: IotProjectProps) {
               <li>Pause and resume, with buzzer feedback on transitions</li>
               <li>Status, live temperature and ambient light readings shown on a 16x2 RGB LCD</li>
             </ul>
+            <p className="mt-3">
+              The documented hardware version also used potentiometers for brightness and color
+              control, button gestures for timer/mode actions, and LCD feedback for mode, timer
+              state, and sensor readings.
+            </p>
           </div>
         ),
       },
@@ -127,6 +132,11 @@ export function IotProject({ onBack }: IotProjectProps) {
                 ascending fanfare on victory
               </li>
             </ul>
+            <p className="mt-3">
+              The physical build was intentionally minimal: four push buttons for roll,
+              confirmation, and navigation, plus LEDs and a buzzer for turn state and feedback. The
+              richer rules, currency tracking, and tutorial layer lived in Unity.
+            </p>
           </div>
         ),
       },

@@ -60,8 +60,9 @@ npm run preview
 │   ├── ForFun.tsx          # For Fun page
 │   └── projects/           # Individual project detail pages
 │       ├── RadikalProject.tsx
-│       ├── ChalloProject.tsx
-│       └── ... (9 total)
+│       ├── WavezzProject.tsx
+│       ├── ThinkInsideTheBoxProject.tsx
+│       └── ... (17 total)
 ├── data/                   # Data files
 │   ├── personal.ts         # Personal info, experience, awards
 │   └── projects.ts         # Project details

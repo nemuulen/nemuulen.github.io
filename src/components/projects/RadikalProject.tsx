@@ -29,7 +29,7 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
     funding: "¥15,000 CNY Seed Funding",
 
     overview:
-      "RADIKAL (formerly Chinese Radical Lab) is a gamified, AI-powered mobile application that tackles one of the hardest parts of learning Mandarin: memorising characters. Where existing platforms lock learners into rigid curricula, RADIKAL lets them import vocabulary from any source and build memory through interactive character construction, personalised associations, and AI-generated stories. Built by Team Wision under DKU's Dii entrepreneurship programme (project code IE169), it is co-founded with Bilguun Dugarsuren, where I serve as team leader, developer, and lead on data collection and communications.",
+      "RADIKAL (formerly Chinese Radical Lab) is a gamified, AI-powered mobile application that tackles one of the hardest parts of learning Mandarin: memorising characters. Where existing platforms lock learners into rigid curricula, RADIKAL lets them import vocabulary from any source and build memory through interactive character construction, personalised associations, and AI-generated stories. Built by Team Wision under DKU's Dii entrepreneurship programme (project code IE169), it is co-founded with Bilguun Dugarsuren, where I serve as team leader, developer, and lead on data collection and communications. The product has reached 200+ users and has been iterated through usability research with 120+ students.",
 
     sections: [
       {
@@ -144,25 +144,70 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
         ),
       },
       {
+        title: "Quarterly Milestones",
+        content: (
+          <div>
+            <p className="mb-3">
+              The midterm report documented progress across technical development, user research,
+              community engagement, and team process as RADIKAL moved from concept toward a
+              research-supported learning prototype.
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li>
+                Built a web-based prototype first so the team could iterate faster before committing
+                to the full mobile app
+              </li>
+              <li>
+                Translated early wireframes into a clearer visual layout with basic navigation and
+                gamification features
+              </li>
+              <li>
+                Used the Chinese Teatime demo to test whether radical-based learning, stories, and
+                visuals were understandable to real learners
+              </li>
+              <li>
+                Turned public-demo feedback into product direction around guidance, interactivity,
+                and personalization
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
         title: "Technical Implementation",
         content: (
           <div>
             <ul style={{ listStyleType: "disc" }}>
-              <li><strong>Mobile:</strong> React Native with Expo and expo-router, converted from the Figma UI</li>
-              <li><strong>Backend:</strong> Supabase for data, auth and storage</li>
-              <li><strong>AI:</strong> OpenAI (gpt-4o / gpt-4o-mini) for story generation, with DeepSeek as a cheaper testing path</li>
+              <li><strong>Frontend:</strong> React 18 + Vite 6 with Tailwind CSS and Shadcn/Radix UI</li>
+              <li><strong>Backend:</strong> Supabase for PostgreSQL, Edge Functions, auth, storage and realtime features</li>
+              <li><strong>Mobile:</strong> Capacitor iOS/Android shell, with iOS distributed through TestFlight and App Store submission in progress</li>
+              <li><strong>AI:</strong> Kimi/Moonshot API through a Supabase Edge Function for short, radical-grounded mnemonic story generation</li>
               <li>
-                <strong>Dataset:</strong> a structured HSK 1-4 character set built from the Unicode
-                Unihan database - radicals, meanings, pinyin and examples, normalised into clean JSON
-                for fast querying and AI prompting
+                <strong>Dataset:</strong> 18,958 rows covering 4,953 characters, 9,424 words, 4,581
+                unclassified entries and 218 radicals, sourced from Unihan, CC-CEDICT, Make Me a
+                Hanzi and ivankra/hsk30
               </li>
               <li>
-                <strong>Navigation:</strong> Home → Character of the Day → Story → Creative Lab → Profile
+                <strong>Web distribution:</strong> Radikal.one on Netlify as a PWA-capable single-page app
               </li>
-              <li>
-                <strong>Regional performance:</strong> caching and local endpoints to keep API latency
-                workable for users in mainland China
-              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "Learning Modes",
+        content: (
+          <div>
+            <p className="mb-3">
+              The final report defines six learning modes, each aimed at a distinct cognitive skill:
+            </p>
+            <ul style={{ listStyleType: "disc" }}>
+              <li><strong>Guess the Hanzi</strong> - quiz from mnemonic or definition to character</li>
+              <li><strong>HanziLab</strong> - assemble radicals to construct real characters</li>
+              <li><strong>Class Mode</strong> - teacher-managed decks and student progress tracking</li>
+              <li><strong>Focus Mode</strong> - spaced repetition for characters due for review</li>
+              <li><strong>Dictionary</strong> - browse and full-text search across the character and word database</li>
+              <li><strong>Community</strong> - leaderboard, XP milestones and forum features</li>
             </ul>
           </div>
         ),
@@ -193,6 +238,10 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
               We estimate a target market of roughly 15 million tech-savvy learners aged 10-25
               globally, within a digital language learning industry projected to reach $14.8 billion
               by 2028. The project supports UN SDG 4 (Quality Education).
+            </p>
+            <p className="mt-3">
+              The final pricing plan includes a free tier with 3 daily tokens, paid token packs, and
+              institutional licensing at $6 per student for a 6-month term.
             </p>
           </div>
         ),
@@ -260,6 +309,11 @@ export function RadikalProject({ onBack }: RadikalProjectProps) {
     ],
 
     documents: [
+      {
+        title: "Final Report",
+        description: "Dii final report: product design, technical architecture, business model and go-to-market plan",
+        fileName: "radikal-final-report.pdf",
+      },
       {
         title: "Project Proposal",
         description: "Full entrepreneurship proposal: market analysis, business strategy, financials",

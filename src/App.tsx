@@ -10,7 +10,7 @@ import { Footer } from './components/Footer';
 
 // Project Detail Pages
 import { RadikalProject } from './components/projects/RadikalProject';
-import { ChalloProject } from './components/projects/ChalloProject';
+import { WavezzProject } from './components/projects/WavezzProject';
 import { AidAiProject } from './components/projects/AidAiProject';
 import { DkuIntersectionsProject } from './components/projects/DkuIntersectionsProject';
 import { ViralCampaignProject } from './components/projects/ViralCampaignProject';
@@ -25,6 +25,7 @@ import { FocusZoneBraceletProject } from './components/projects/FocusZoneBracele
 import { Infosci103Project } from './components/projects/Infosci103Project';
 import { Infosci103FinalProject } from './components/projects/Infosci103FinalProject';
 import { GbcsProject } from './components/projects/GbcsProject';
+import { ThinkInsideTheBoxProject } from './components/projects/ThinkInsideTheBoxProject';
 
 type Page = 'home' | 'projects' | 'about' | 'forfun' | 'project-detail';
 
@@ -49,8 +50,10 @@ export default function App() {
     switch (currentProjectId) {
       case 'radikal':
         return <RadikalProject onBack={handleBackToProjects} />;
-      case 'challo':
-        return <ChalloProject onBack={handleBackToProjects} />;
+      case 'wavezz':
+        return <WavezzProject onBack={handleBackToProjects} />;
+      case 'think-inside-the-box':
+        return <ThinkInsideTheBoxProject onBack={handleBackToProjects} />;
       case 'aid-ai':
         return <AidAiProject onBack={handleBackToProjects} />;
       case 'dku-intersections':

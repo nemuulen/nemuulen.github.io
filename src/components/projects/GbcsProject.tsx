@@ -23,7 +23,7 @@ export function GbcsProject({ onBack }: GbcsProjectProps) {
     timeline: "Mar 2025 - Jun 2026",
 
     overview:
-      "A remote internship with GBCS Group LTD SkyIT in Calgary, Canada, building responsive, high-performance websites with generative AI woven into the production workflow rather than bolted on at the end. GBCS operates across logistics, shipping, aviation and freight, so the work meant translating a corporate brand with global operations into a fast, credible web presence.",
+      "A remote internship with GBCS Group LTD SkyIT in Calgary, Canada, architecting and deploying a responsive company introduction website on Hostinger's WordPress. GBCS operates across logistics, shipping, aviation and freight, so the work meant translating a corporate brand with global operations into a fast, credible web presence across desktop, tablet, and mobile.",
 
     sections: [
       {
@@ -32,16 +32,16 @@ export function GbcsProject({ onBack }: GbcsProjectProps) {
           <div>
             <ul style={{ listStyleType: "disc" }}>
               <li>
-                Used generative AI to create custom assets, then architected and built responsive,
-                high-performance websites primarily on Hostinger's WordPress AI Builder
+                Architected and deployed a responsive company introduction website on Hostinger's
+                WordPress
               </li>
               <li>
-                Conducted rigorous testing to ensure output met professional standards of UX and UI,
-                rather than shipping AI output unreviewed
+                Executed mobile and tablet orientation fixes and visual optimization to ensure
+                cross-device consistency
               </li>
               <li>
-                Managed and optimized the WordPress ecosystem - plugin integration, theme
-                configuration, and back-end settings - to ensure a seamless live environment
+                Completed continuous UI/UX reviews in direct collaboration with company executive
+                leadership and refined pages to improve delivery of core messages
               </li>
             </ul>
           </div>
@@ -64,7 +64,7 @@ export function GbcsProject({ onBack }: GbcsProjectProps) {
     links: [
       {
         label: "Visit GBCS",
-        url: "https://gbcs.com",
+        url: "https://gbcsgroup.com/",
       },
     ],
     documents: [],
