@@ -1,268 +1,216 @@
 import { motion } from "motion/react";
-import { Search, Sprout, ArrowRight } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { Search } from "lucide-react";
+import { useState } from "react";
 import { projects } from "../data/projects";
 import {
   awards,
   certificates,
   leadership,
+  personalInfo,
   ventures,
   volunteerWork,
   workExperience,
 } from "../data/personal";
+import { Garden } from "./garden/Garden";
+import { PLOT_COUNT, useGarden } from "./garden/useGarden";
+import "./NotAnActualAi.css";
 
 interface NotAnActualAiProps {
   onViewProject: (projectId: string) => void;
 }
 
+type RecordType = "Project" | "Experience" | "Venture" | "Leadership" | "Service" | "Recognition";
+
 interface SearchRecord {
   id: string;
   label: string;
-  type: string;
-  text: string;
+  type: RecordType;
+  /** Space-padded word string, so `includes(" term ")` only matches whole words and phrases. */
+  words: string;
   projectId?: string;
 }
 
-interface Flower {
-  id: string;
-  x: number;
-  y: number;
-  size: number;
-  color: string;
-}
+type Answer =
+  | { kind: "idle" }
+  | { kind: "empty" }
+  | { kind: "none" }
+  | { kind: "results"; query: string; top: SearchRecord; counts: [RecordType, number][]; matchedOn: string[] };
 
-const FLOWER_KEY = "nemuulen-notanactualai-garden";
-const FLOWER_COLORS = ["#012169", "#00539B", "#10B981", "#F59E0B", "#EC4899"];
+const PLURALS: Record<RecordType, [string, string]> = {
+  Project: ["project", "projects"],
+  Experience: ["role", "roles"],
+  Venture: ["venture", "ventures"],
+  Leadership: ["leadership role", "leadership roles"],
+  Service: ["service role", "service roles"],
+  Recognition: ["award or certificate", "awards and certificates"],
+};
 
 const keywordGroups: Record<string, string[]> = {
   ai: ["ai", "agent", "agents", "llm", "generative", "machine learning", "ml", "openai"],
-  product: ["product", "pm", "manager", "strategy", "roadmap", "mvp", "startup", "business"],
-  ux: ["ux", "ui", "design", "figma", "prototype", "research", "user", "usability"],
-  leadership: ["leadership", "leader", "president", "manager", "team", "organized", "club"],
+  product: ["product", "pm", "strategy", "roadmap", "mvp", "startup", "business"],
+  ux: ["ux", "ui", "design", "figma", "prototype", "user", "usability", "interview"],
+  leadership: ["leadership", "leader", "president", "team", "organized", "club"],
   mobile: ["mobile", "app", "react native", "ios", "android", "swift", "xcode"],
   web: ["web", "website", "wordpress", "vite", "react", "frontend"],
-  data: ["data", "visualization", "analytics", "dashboard", "research", "survey"],
+  data: ["data", "visualization", "analytics", "dashboard", "survey"],
   education: ["education", "teaching", "student", "counselor", "learning", "language"],
   social: ["social", "community", "wellbeing", "volunteer", "impact", "culture"],
   awards: ["award", "certificate", "fellow", "prize", "externship", "hackathon"],
 };
 
+const STOPWORDS = new Set(
+  "a an the and or of to in on at for with by from is are was were be been do does did any about me my her his she he it its this that these those what which who how why where when show tell find give list proves prove see work works project projects thing things some can has have i".split(
+    " "
+  )
+);
+
+const examples = ["show AI projects", "show leadership", "what proves UX research"];
+
 function normalize(value: string) {
-  return value.toLowerCase().replace(/[^a-z0-9+#.\s-]/g, " ");
+  return value.toLowerCase().replace(/[^a-z0-9+#.\s-]/g, " ").replace(/\s+/g, " ").trim();
 }
 
+function toWords(value: string) {
+  return ` ${normalize(value).replace(/[.-]/g, " ")} `;
+}
+
+/** Returns query terms with weights: words the visitor typed count 3, synonyms from a matched group count 1. */
 function getQueryTerms(query: string) {
-  const normalized = normalize(query);
-  const rawTerms = normalized.split(/\s+/).filter((term) => term.length > 1);
-  const expanded = new Set(rawTerms);
+  const typed = normalize(query)
+    .replace(/[.-]/g, " ")
+    .split(" ")
+    .filter((term) => term.length > 1 && !STOPWORDS.has(term));
+  const padded = ` ${typed.join(" ")} `;
+  const weights = new Map(typed.map((term) => [term, 3]));
 
   Object.entries(keywordGroups).forEach(([group, terms]) => {
-    if (terms.some((term) => normalized.includes(term))) {
-      expanded.add(group);
-      terms.forEach((term) => expanded.add(term));
-    }
+    if (!terms.some((term) => padded.includes(` ${term} `))) return;
+    [group, ...terms].forEach((term) => {
+      if (!weights.has(term)) weights.set(term, 1);
+    });
   });
 
-  return [...expanded];
+  return weights;
 }
 
-function scoreRecord(record: SearchRecord, terms: string[]) {
-  const text = normalize(`${record.label} ${record.type} ${record.text}`);
-  return terms.reduce((score, term) => {
-    if (text.includes(term)) return score + (term.length > 3 ? 2 : 1);
-    return score;
-  }, 0);
+function matchesWord(words: string, term: string) {
+  if (words.includes(` ${term} `) || words.includes(` ${term}s `)) return true;
+  return term.length > 3 && term.endsWith("s") && words.includes(` ${term.slice(0, -1)} `);
 }
 
-function createFlower(): Flower {
-  return {
-    id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-    x: 8 + Math.random() * 84,
-    y: 16 + Math.random() * 70,
-    size: 0.7 + Math.random() * 0.7,
-    color: FLOWER_COLORS[Math.floor(Math.random() * FLOWER_COLORS.length)],
-  };
+const validProjectIds = new Set(projects.map((project) => project.id));
+
+function linkable(projectId?: string) {
+  return projectId && validProjectIds.has(projectId) ? projectId : undefined;
 }
 
-function FlowerShape({ flower }: { flower: Flower }) {
-  const petalStyle = {
-    position: "absolute" as const,
-    width: `${12 * flower.size}px`,
-    height: `${18 * flower.size}px`,
-    borderRadius: "999px 999px 0 999px",
-    backgroundColor: flower.color,
-    opacity: 0.82,
-    transformOrigin: `50% ${12 * flower.size}px`,
-  };
+const records: SearchRecord[] = [
+  ...projects.map((project) => ({
+    id: `project-${project.id}`,
+    label: project.title,
+    type: "Project" as const,
+    words: toWords(
+      [project.title, project.description, project.category, project.tags.join(" "), project.timeline, project.award, project.funding]
+        .filter(Boolean)
+        .join(" ")
+    ),
+    projectId: project.id,
+  })),
+  ...workExperience.map((job, index) => ({
+    id: `experience-${index}`,
+    label: `${job.position} at ${job.company}`,
+    type: "Experience" as const,
+    words: toWords([job.position, job.company, job.location, job.timeline, job.responsibilities.join(" ")].join(" ")),
+    projectId: linkable((job as { projectId?: string }).projectId),
+  })),
+  ...ventures.map((venture, index) => ({
+    id: `venture-${index}`,
+    label: `${venture.position}, ${venture.organization}`,
+    type: "Venture" as const,
+    words: toWords([venture.position, venture.organization, venture.timeline, venture.achievements.join(" ")].join(" ")),
+    projectId: linkable(venture.projectId),
+  })),
+  ...leadership.map((role, index) => ({
+    id: `leadership-${index}`,
+    label: `${role.position}, ${role.organization}`,
+    type: "Leadership" as const,
+    words: toWords(["leadership", role.position, role.organization, role.location, role.timeline, role.achievements.join(" ")].join(" ")),
+  })),
+  ...volunteerWork.map((role, index) => ({
+    id: `service-${index}`,
+    label: `${role.position}, ${role.organization}`,
+    type: "Service" as const,
+    words: toWords([role.position, role.organization, role.location, role.timeline, role.achievements.join(" ")].join(" ")),
+  })),
+  ...[...awards, ...certificates].map((item, index) => ({
+    id: `recognition-${index}`,
+    label: item.title,
+    type: "Recognition" as const,
+    words: toWords(
+      [item.title, item.organization, item.year, (item as { description?: string }).description].filter(Boolean).join(" ")
+    ),
+    projectId: linkable((item as { projectId?: string }).projectId),
+  })),
+];
 
-  return (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 260, damping: 18 }}
-      style={{
-        position: "absolute",
-        left: `${flower.x}%`,
-        top: `${flower.y}%`,
-        width: `${34 * flower.size}px`,
-        height: `${34 * flower.size}px`,
-      }}
-    >
-      {[0, 72, 144, 216, 288].map((rotation) => (
-        <span
-          key={rotation}
-          aria-hidden
-          style={{
-            ...petalStyle,
-            left: "50%",
-            top: "50%",
-            transform: `translate(-50%, -85%) rotate(${rotation}deg)`,
-          }}
-        />
-      ))}
-      <span
-        aria-hidden
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          width: `${9 * flower.size}px`,
-          height: `${9 * flower.size}px`,
-          transform: "translate(-50%, -50%)",
-          borderRadius: "999px",
-          backgroundColor: "#F8FAFC",
-          border: "1px solid rgba(15, 23, 42, 0.18)",
-        }}
-      />
-    </motion.div>
-  );
+function search(query: string) {
+  const terms = getQueryTerms(query);
+  const matchedOn = new Set<string>();
+
+  const ranked = records
+    .map((record) => {
+      let score = 0;
+      terms.forEach((weight, term) => {
+        if (!matchesWord(record.words, term)) return;
+        score += weight;
+        if (weight > 1) matchedOn.add(term);
+      });
+      return { record, score };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score || Number(b.record.type === "Project") - Number(a.record.type === "Project"))
+    .slice(0, 6)
+    .map((item) => item.record);
+
+  return { ranked, matchedOn: [...matchedOn] };
+}
+
+function summarizeCounts(counts: [RecordType, number][]) {
+  return counts.map(([type, count]) => `${count} ${PLURALS[type][count === 1 ? 0 : 1]}`).join(", ");
 }
 
 export function NotAnActualAi({ onViewProject }: NotAnActualAiProps) {
   const [query, setQuery] = useState("");
-  const [answer, setAnswer] = useState(
-    "Ask me things like show AI projects, show leadership, or what proves UX research."
-  );
+  const [lastAsked, setLastAsked] = useState("");
+  const [answer, setAnswer] = useState<Answer>({ kind: "idle" });
   const [matches, setMatches] = useState<SearchRecord[]>([]);
-  const [flowers, setFlowers] = useState<Flower[]>([]);
-
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(FLOWER_KEY);
-      if (saved) setFlowers(JSON.parse(saved));
-    } catch {
-      setFlowers([]);
-    }
-  }, []);
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(FLOWER_KEY, JSON.stringify(flowers.slice(-24)));
-    } catch {
-      // localStorage may be disabled; the garden still works for this session.
-    }
-  }, [flowers]);
-
-  const records = useMemo<SearchRecord[]>(() => {
-    const projectRecords = projects.map((project) => ({
-      id: `project-${project.id}`,
-      label: project.title,
-      type: "Project",
-      text: [
-        project.description,
-        project.category,
-        project.tags.join(" "),
-        project.timeline,
-        project.award,
-        project.funding,
-      ]
-        .filter(Boolean)
-        .join(" "),
-      projectId: project.id,
-    }));
-
-    const experienceRecords = workExperience.map((job, index) => ({
-      id: `experience-${index}`,
-      label: `${job.position} at ${job.company}`,
-      type: "Experience",
-      text: [job.location, job.timeline, job.responsibilities.join(" ")].join(" "),
-      projectId: (job as { projectId?: string }).projectId,
-    }));
-
-    const ventureRecords = ventures.map((venture, index) => ({
-      id: `venture-${index}`,
-      label: `${venture.position}, ${venture.organization}`,
-      type: "Venture",
-      text: [venture.timeline, venture.achievements.join(" ")].join(" "),
-      projectId: venture.projectId,
-    }));
-
-    const leadershipRecords = leadership.map((role, index) => ({
-      id: `leadership-${index}`,
-      label: `${role.position}, ${role.organization}`,
-      type: "Leadership",
-      text: [role.location, role.timeline, role.achievements.join(" ")].join(" "),
-    }));
-
-    const serviceRecords = volunteerWork.map((role, index) => ({
-      id: `service-${index}`,
-      label: `${role.position}, ${role.organization}`,
-      type: "Service",
-      text: [role.location, role.timeline, role.achievements.join(" ")].join(" "),
-    }));
-
-    const recognitionRecords = [...awards, ...certificates].map((item, index) => ({
-      id: `recognition-${index}`,
-      label: item.title,
-      type: "Recognition",
-      text: [item.organization, item.year, (item as { description?: string }).description].join(" "),
-      projectId: (item as { projectId?: string }).projectId,
-    }));
-
-    return [
-      ...projectRecords,
-      ...experienceRecords,
-      ...ventureRecords,
-      ...leadershipRecords,
-      ...serviceRecords,
-      ...recognitionRecords,
-    ];
-  }, []);
+  const [gardenStatus, setGardenStatus] = useState("");
+  const { flowers, plant, reset } = useGarden();
 
   const runSearch = (nextQuery = query) => {
     const trimmed = nextQuery.trim();
     if (!trimmed) {
-      setAnswer("Type a tiny mission and I will point you to the most relevant parts of the portfolio.");
+      setAnswer({ kind: "empty" });
       setMatches([]);
       return;
     }
 
-    const terms = getQueryTerms(trimmed);
-    const ranked = records
-      .map((record) => ({ record, score: scoreRecord(record, terms) }))
-      .filter((item) => item.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5)
-      .map((item) => item.record);
+    setLastAsked(trimmed.toLowerCase());
+    const flower = plant(trimmed);
+    const planted = Math.min(flowers.length + 1, PLOT_COUNT);
+    setGardenStatus(`A ${flower.color} ${flower.species} bloomed (${planted}/${PLOT_COUNT}).`);
 
-    if (ranked.length === 0) {
-      setAnswer("Oops, I don't have info on that. Ask directly from her!");
-      setMatches([]);
-      setFlowers((current) => [...current.slice(-23), createFlower()]);
-      return;
-    }
-
-    const projectCount = ranked.filter((item) => item.type === "Project").length;
-    const top = ranked[0];
-    const lead = projectCount > 0 ? `${projectCount} project match${projectCount === 1 ? "" : "es"}` : `${ranked.length} relevant match${ranked.length === 1 ? "" : "es"}`;
-    setAnswer(
-      `notanactualai found ${lead}. The strongest signal is ${top.label}, and the other matches help show the same thread from different angles.`
-    );
+    const { ranked, matchedOn } = search(trimmed);
     setMatches(ranked);
-    setFlowers((current) => [...current.slice(-23), createFlower()]);
-  };
+    if (ranked.length === 0) {
+      setAnswer({ kind: "none" });
+      return;
+    }
 
-  const examples = ["show AI projects", "show leadership", "what proves UX research"];
+    const counts = new Map<RecordType, number>();
+    ranked.forEach((record) => counts.set(record.type, (counts.get(record.type) ?? 0) + 1));
+    setAnswer({ kind: "results", query: trimmed, top: ranked[0], counts: [...counts].sort((a, b) => b[1] - a[1]), matchedOn });
+  };
 
   return (
     <motion.section
@@ -270,116 +218,112 @@ export function NotAnActualAi({ onViewProject }: NotAnActualAiProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.55 }}
-      className="mb-10"
+      className="naa"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-5 items-stretch">
-        <div className="border border-[#E2E8F0] bg-white shadow-sm rounded-2xl p-5">
-          <div className="flex items-center gap-2 mb-3">
-            <Search className="w-5 h-5 text-[#012169]" />
-            <div>
-              <h2 className="text-2xl font-bold text-[#0F172A]">notanactualai</h2>
-              <p className="text-sm text-[#64748B]">
-                A no-cost, browser-only guide to Nemuulen's work.
-              </p>
-            </div>
+      <div className="naa-card">
+        <div className="naa-head">
+          <Search aria-hidden className="naa-head-icon" />
+          <div>
+            <h2 className="naa-title">notanactualai</h2>
+            <p className="naa-subtitle">A no-cost, browser-only guide to Nemuulen's work.</p>
           </div>
+        </div>
 
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              runSearch();
-            }}
-            className="flex flex-col sm:flex-row gap-2 mb-3"
-          >
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Try: show AI projects"
-              className="flex-1 px-4 py-3 border border-[#CBD5E1] rounded-lg text-sm text-[#0F172A] focus:outline-none focus:border-[#012169]"
-            />
-            <button
-              type="submit"
-              className="px-5 py-3 bg-[#012169] hover:bg-[#00539B] text-white text-sm font-semibold rounded-lg transition-colors"
-            >
-              Ask
-            </button>
-          </form>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            runSearch();
+          }}
+          className="naa-form"
+        >
+          <label htmlFor="naa-query" className="naa-sr-only">
+            Ask about Nemuulen's work
+          </label>
+          <input
+            id="naa-query"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Try: show AI projects"
+            autoComplete="off"
+            className="naa-input"
+          />
+          <button type="submit" className="naa-ask">
+            Ask
+          </button>
+        </form>
 
-          <div className="flex flex-wrap gap-2 mb-4">
-            {examples.map((example) => (
+        <div className="naa-chips">
+          {examples.map((example) => {
+            const active = lastAsked === example.toLowerCase();
+            return (
               <button
                 key={example}
+                type="button"
+                aria-pressed={active}
                 onClick={() => {
                   setQuery(example);
                   runSearch(example);
                 }}
-                className="px-3 py-1.5 border border-[#E2E8F0] rounded-full text-xs font-medium text-[#475569] hover:border-[#012169] hover:text-[#012169] transition-colors"
+                className={`naa-chip${active ? " naa-chip--active" : ""}`}
               >
                 {example}
               </button>
-            ))}
-          </div>
+            );
+          })}
+        </div>
 
-          <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-4 mb-4">
-            <p className="text-sm text-[#334155] leading-relaxed">{answer}</p>
-          </div>
+        <div className="naa-answer" aria-live="polite">
+          {answer.kind === "idle" && <p>Ask me things like show AI projects, show leadership, or what proves UX research.</p>}
+          {answer.kind === "empty" && <p>Type a question and I will point you to the most relevant parts of the portfolio.</p>}
+          {answer.kind === "none" && (
+            <p>
+              Oops, I don't have anything on that yet.{" "}
+              <a href={`mailto:${personalInfo.email}`} className="naa-link">
+                Ask her directly!
+              </a>
+            </p>
+          )}
+          {answer.kind === "results" && (
+            <p>
+              Found {summarizeCounts(answer.counts)} for “{answer.query}”. Top match: <strong>{answer.top.label}</strong>.
+              {answer.matchedOn.length > 0 && (
+                <span className="naa-matched"> Matched on {answer.matchedOn.join(", ")}.</span>
+              )}
+            </p>
+          )}
+        </div>
 
-          {matches.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              {matches.map((match) => (
-                <button
-                  key={match.id}
-                  onClick={() => match.projectId && onViewProject(match.projectId)}
-                  disabled={!match.projectId}
-                  className="text-left p-3 border border-[#E2E8F0] rounded-lg hover:border-[#012169] disabled:hover:border-[#E2E8F0] transition-colors"
-                >
-                  <span className="block text-xs font-semibold uppercase tracking-wider text-[#94A3B8] mb-1">
-                    {match.type}
-                  </span>
-                  <span className="block text-sm font-semibold text-[#0F172A]">
-                    {match.label}
-                  </span>
-                  {match.projectId && (
-                    <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#012169]">
-                      See more
-                      <ArrowRight className="w-3 h-3" />
-                    </span>
+        {matches.length > 0 && (
+          <ul className="naa-results">
+            {matches.map((match) => {
+              const body = (
+                <>
+                  <span className="naa-result-type">{match.type}</span>
+                  <span className="naa-result-label">{match.label}</span>
+                  {match.projectId && <span className="naa-result-link">See more</span>}
+                </>
+              );
+              return (
+                <li key={match.id}>
+                  {match.projectId ? (
+                    <button
+                      type="button"
+                      onClick={() => onViewProject(match.projectId!)}
+                      className="naa-result naa-result--link"
+                    >
+                      {body}
+                    </button>
+                  ) : (
+                    <div className="naa-result">{body}</div>
                   )}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div
-          className="relative min-h-[320px] border border-[#E2E8F0] rounded-2xl overflow-hidden bg-[#F8FAFC]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(1, 33, 105, 0.18) 1px, transparent 0)",
-            backgroundSize: "18px 18px",
-          }}
-        >
-          <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-            <div>
-              <p className="text-sm font-bold text-[#0F172A]">persistent little garden</p>
-              <p className="text-xs text-[#64748B]">Each question blooms a saved flower here.</p>
-            </div>
-            <Sprout className="w-5 h-5 text-[#10B981]" />
-          </div>
-
-          <div aria-hidden style={{ position: "absolute", inset: "4rem 0.75rem 0.75rem" }}>
-            {flowers.map((flower) => (
-              <FlowerShape key={flower.id} flower={flower} />
-            ))}
-          </div>
-
-          {flowers.length === 0 && (
-            <div className="absolute inset-x-6 bottom-8 text-sm text-[#64748B]">
-              Ask something to plant the first one.
-            </div>
-          )}
-        </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
+
+      <Garden flowers={flowers} status={gardenStatus} onReset={reset} />
     </motion.section>
   );
 }

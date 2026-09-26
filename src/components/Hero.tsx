@@ -124,7 +124,7 @@ export function Hero({
               transition={{ duration: 0.6, delay: 0.65 }}
               className="mt-4 text-xs font-medium uppercase tracking-wider text-[#94A3B8]"
             >
-              Last updated: 2026, September 27
+              Last updated: {__BUILD_DATE__}
             </motion.p>
           </motion.div>
 

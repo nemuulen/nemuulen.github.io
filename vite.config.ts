@@ -3,8 +3,16 @@
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
 
+  // Shown as "Last updated" in the hero; formatted in the site owner's time zone so CI (UTC) builds match.
+  const buildDate = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', year: 'numeric', month: 'long', day: 'numeric' })
+    .formatToParts(new Date())
+    .reduce<Record<string, string>>((parts, { type, value }) => ({ ...parts, [type]: value }), {});
+
   export default defineConfig({
     plugins: [react()],
+    define: {
+      __BUILD_DATE__: JSON.stringify(`${buildDate.year}, ${buildDate.month} ${buildDate.day}`),
+    },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
