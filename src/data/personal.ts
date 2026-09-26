@@ -147,14 +147,14 @@ export const ventures = [
     ]
   },
   {
-    organization: 'Wavezz (formerly Challo): Community Building & Wellbeing Initiative',
+    organization: 'Wavezz: Community Building & Wellbeing Initiative',
     position: 'Founder',
     timeline: 'Aug 2025 - Present',
     projectId: 'wavezz',
     achievements: [
       'Selected as Millennium Fellow from 60,000+ applicants worldwide through United Nations Academic Impact and Millennium Campus Network',
       'Completed 10 leadership sessions on project management, budgeting, and strategic goal setting',
-      'Conducted problem-discovery interviews with 20 students and market analysis of 15 productivity apps, translating key user pain points into 6 beta-launch features'
+      'Used problem-discovery research and market analysis to translate student pain points into early product directions'
     ]
   },
   {
@@ -271,13 +271,13 @@ export const certificates = [
   {
     title: 'Wayfair AI Agent Engineering for Business Intelligence Externship',
     organization: 'Wayfair | Boston, Massachusetts (Remote)',
-    externalUrl: 'https://docs.google.com/presentation/d/1TQ-Wmw1btWm9ypZhXsbShzi1tiEskesURGEQ72-_bJM/edit?usp=sharing',
     year: 'Jun 2026 - Aug 2026',
     projectId: 'wayfair-externship'
   },
   {
     title: 'Millennium Fellow',
-    organization: 'United Nations Academic Impact & Millennium Campus Network',
+    organization: 'United Nations Academic Impact & Millennium Campus Network (Wavezz, formerly Challo)',
+    externalUrl: 'https://www.millenniumfellows.org//fellow/2025/dku/nemuulen-togtbaatar',
     year: 'Jan 2026',
     projectId: 'wavezz'
   }

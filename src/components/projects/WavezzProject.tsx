@@ -14,12 +14,13 @@ export function WavezzProject({ onBack }: WavezzProjectProps) {
   const projectData: ProjectDetailData = {
     title: "Wavezz",
     subtitle: "Community Building & Wellbeing Initiative",
-    tags: ["React Native", "Figma", "UI/UX Design", "Social Impact", "Community Building"],
+    coverImage: "/images/projects/wavezz.png",
+    tags: ["Figma", "UI/UX Design", "Social Impact", "Community Building", "Wellbeing"],
     timeline: "Aug 2025 - Present",
     award: "UN Millennium Fellowship",
 
     overview:
-      "Wavezz, formerly Challo, is a community building and wellbeing initiative founded during the Millennium Fellowship, a civic leadership program run by United Nations Academic Impact and the Millennium Campus Network. The project explores how digital community engagement and personal productivity can help students sustain everyday wellbeing habits through research-backed features, social motivation, and lightweight structure.",
+      "Wavezz is a community building and wellbeing initiative developed during the Millennium Fellowship, a civic leadership program run by United Nations Academic Impact and the Millennium Campus Network. The project explores how digital community engagement and personal productivity can help students sustain everyday wellbeing habits through social motivation and lightweight structure.",
 
     sections: [
       {
@@ -38,9 +39,9 @@ export function WavezzProject({ onBack }: WavezzProjectProps) {
         content: (
           <div>
             <p className="mb-3">
-              Built interactive prototypes for the digital wellness platform using Figma and React
-              Native. The beta concept was shaped by problem-discovery interviews with 20 students,
-              market analysis of 15 productivity apps, and 6 core features for launch:
+              Built interactive prototypes for the digital wellness platform using Figma. The beta
+              concept was shaped by problem-discovery research and market analysis into early
+              feature directions:
             </p>
             <ul style={{ listStyleType: "disc" }}>
               <li>
@@ -94,7 +95,7 @@ export function WavezzProject({ onBack }: WavezzProjectProps) {
 
     links: [],
     documents: [],
-    gallery: [],
+    gallery: ["/images/projects/wavezz.png"],
   };
 
   return <ProjectDetailTemplate data={projectData} onBack={onBack} />;

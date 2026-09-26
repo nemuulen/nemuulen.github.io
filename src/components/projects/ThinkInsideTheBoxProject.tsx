@@ -12,6 +12,7 @@ export function ThinkInsideTheBoxProject({ onBack }: ThinkInsideTheBoxProjectPro
   const projectData: ProjectDetailData = {
     title: "TOTB",
     subtitle: "ThinkInsideTheBox | AI-Driven Ideation Platform",
+    coverImage: "/images/projects/think-inside-the-box.png",
     tags: [
       "AI Product",
       "Product Strategy",
@@ -72,7 +73,7 @@ export function ThinkInsideTheBoxProject({ onBack }: ThinkInsideTheBoxProjectPro
 
     links: [],
     documents: [],
-    gallery: [],
+    gallery: ["/images/projects/think-inside-the-box.png"],
   };
 
   return <ProjectDetailTemplate data={projectData} onBack={onBack} />;

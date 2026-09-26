@@ -12,8 +12,7 @@ export function WayfairProject({ onBack }: WayfairProjectProps) {
   const projectData: ProjectDetailData = {
     title: "Wayfair AI Agent Engineering Externship",
     subtitle: "AI Agent Engineering for Business Intelligence",
-    coverImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&h=900&fit=crop",
+    coverImage: "/images/projects/wayfair-market-dashboard.png",
     tags: ["AI Agents", "Business Intelligence", "Market Intelligence", "Generative AI"],
     timeline: "Jun 2026 - Aug 2026",
     award: "Wayfair Externship Certificate",
@@ -127,29 +126,19 @@ export function WayfairProject({ onBack }: WayfairProjectProps) {
       },
     ],
 
-    links: [
-      {
-        label: "Google Slides",
-        url: "https://docs.google.com/presentation/d/1TQ-Wmw1btWm9ypZhXsbShzi1tiEskesURGEQ72-_bJM/edit?usp=sharing",
-      },
-      {
-        label: "Workflow Folder",
-        url: "https://drive.google.com/drive/folders/1mCMJ0MJnRZ-rvbfMobIw9r2SfsYb-cbx?usp=sharing",
-      },
-    ],
+    links: [],
     documents: [
-      {
-        title: "Final Presentation",
-        description: "Wayfair Rugs Market Intelligence AI Agent demo slides",
-        fileName: "wayfair-final-presentation.pdf",
-      },
       {
         title: "Externship Certificate",
         description: "Completion certificate issued on August 24, 2026",
         fileName: "wayfair-externship-certificate.pdf",
       },
     ],
-    gallery: [],
+    gallery: [
+      "/images/projects/wayfair-trend-discovery.png",
+      "/images/projects/wayfair-competitor-monitoring.png",
+      "/images/projects/wayfair-market-dashboard.png",
+    ],
   };
 
   return <ProjectDetailTemplate data={projectData} onBack={onBack} />;

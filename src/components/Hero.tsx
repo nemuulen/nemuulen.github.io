@@ -117,6 +117,15 @@ export function Hero({
                 About Me
               </button>
             </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.65 }}
+              className="mt-4 text-xs font-medium uppercase tracking-wider text-[#94A3B8]"
+            >
+              Last updated: 2026, September 27
+            </motion.p>
           </motion.div>
 
           {/* Profile - Right side */}

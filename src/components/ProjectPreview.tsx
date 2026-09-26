@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { ProjectCard } from './ProjectCard';
 import { projects } from '../data/projects';
+import { NotAnActualAi } from './NotAnActualAi';
 
 interface ProjectPreviewProps {
   onNavigateToProjects: () => void;
@@ -14,6 +15,8 @@ export function ProjectPreview({ onNavigateToProjects, onViewProject }: ProjectP
   return (
     <section className="py-10 px-6 lg:px-12 bg-white">
       <div className="max-w-7xl mx-auto">
+        <NotAnActualAi onViewProject={onViewProject} />
+
         <div className="mb-6 text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
