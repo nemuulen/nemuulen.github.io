@@ -122,7 +122,8 @@ export function Hero({
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65 }}
-              className="mt-4 text-xs font-medium uppercase tracking-wider text-[#94A3B8]"
+              className="text-xs font-medium uppercase tracking-wider text-[#94A3B8]"
+              style={{ marginTop: "2rem", paddingBottom: "1.5rem" }}
             >
               Last updated: {__BUILD_DATE__}
             </motion.p>

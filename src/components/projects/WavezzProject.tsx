@@ -93,8 +93,19 @@ export function WavezzProject({ onBack }: WavezzProjectProps) {
       },
     ],
 
-    links: [],
-    documents: [],
+    links: [
+      {
+        label: "Millennium Fellow Profile",
+        url: "https://www.millenniumfellows.org/fellow/2025/dku/nemuulen-togtbaatar",
+      },
+    ],
+    documents: [
+      {
+        title: "Millennium Fellowship Certificate",
+        description: "Certificate of completion for the Millennium Fellowship Project, issued by UN Academic Impact and the Millennium Campus Network",
+        fileName: "millennium-fellowship-certificate.pdf",
+      },
+    ],
     gallery: ["/images/projects/wavezz.png"],
   };
 

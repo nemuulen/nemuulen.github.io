@@ -277,7 +277,7 @@ export const certificates = [
   {
     title: 'Millennium Fellow',
     organization: 'United Nations Academic Impact & Millennium Campus Network (Wavezz, formerly Challo)',
-    externalUrl: 'https://www.millenniumfellows.org//fellow/2025/dku/nemuulen-togtbaatar',
+    externalUrl: 'https://www.millenniumfellows.org/fellow/2025/dku/nemuulen-togtbaatar',
     year: 'Jan 2026',
     projectId: 'wavezz'
   }

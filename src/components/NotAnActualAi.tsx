@@ -12,7 +12,7 @@ import {
   workExperience,
 } from "../data/personal";
 import { Garden } from "./garden/Garden";
-import { PLOT_COUNT, useGarden } from "./garden/useGarden";
+import { useGarden } from "./garden/useGarden";
 import "./NotAnActualAi.css";
 
 interface NotAnActualAiProps {
@@ -197,8 +197,8 @@ export function NotAnActualAi({ onViewProject }: NotAnActualAiProps) {
 
     setLastAsked(trimmed.toLowerCase());
     const flower = plant(trimmed);
-    const planted = Math.min(flowers.length + 1, PLOT_COUNT);
-    setGardenStatus(`A ${flower.color} ${flower.species} bloomed (${planted}/${PLOT_COUNT}).`);
+    const planted = flowers.length + 1;
+    setGardenStatus(`A ${flower.color} ${flower.species} bloomed. ${planted} flower${planted === 1 ? "" : "s"} so far.`);
 
     const { ranked, matchedOn } = search(trimmed);
     setMatches(ranked);
@@ -224,7 +224,7 @@ export function NotAnActualAi({ onViewProject }: NotAnActualAiProps) {
         <div className="naa-head">
           <Search aria-hidden className="naa-head-icon" />
           <div>
-            <h2 className="naa-title">notanactualai</h2>
+            <h2 className="naa-title">search engine</h2>
             <p className="naa-subtitle">A no-cost, browser-only guide to Nemuulen's work.</p>
           </div>
         </div>

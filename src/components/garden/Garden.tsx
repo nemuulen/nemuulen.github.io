@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import { Sprout } from "lucide-react";
 import { FlowerSvg, PALETTE } from "./flowers";
-import { GRID_SIZE, PLOT_COUNT, type PlantedFlower } from "./useGarden";
+import { GRID_SIZE, type PlantedFlower } from "./useGarden";
 
 interface GardenProps {
   flowers: PlantedFlower[];
@@ -22,7 +22,8 @@ export function Garden({ flowers, status, onReset }: GardenProps) {
     return () => window.clearTimeout(timer);
   }, [confirmingReset]);
 
-  const byCell = new Map(flowers.map((f) => [f.cell, f]));
+  // Flowers rooted further down the bed are closer to the viewer, so they paint on top.
+  const ordered = [...flowers].sort((a, b) => a.y - b.y || a.plantedAt - b.plantedAt);
   const caption = focused
     ? `Planted when someone asked “${focused.query}”`
     : status || (flowers.length === 0 ? "Ask something to plant the first flower." : "Tap or hover a flower to see what grew it.");
@@ -37,46 +38,39 @@ export function Garden({ flowers, status, onReset }: GardenProps) {
           </p>
           <p className="naa-garden-sub">Every question plants a flower.</p>
         </div>
-        <span className="naa-garden-count">
-          {flowers.length}/{PLOT_COUNT}
-        </span>
+        <span className="naa-garden-count">{flowers.length} planted</span>
       </div>
 
-      <div
-        className="naa-plots"
-        role="group"
-        aria-label={`Garden with ${flowers.length} of ${PLOT_COUNT} plots planted`}
-        style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
-        onMouseLeave={() => setFocused(null)}
-      >
-        {Array.from({ length: PLOT_COUNT }, (_, cell) => {
-          const flower = byCell.get(cell);
-          const shade = (Math.floor(cell / GRID_SIZE) + cell) % 2 === 0 ? "naa-plot--light" : "naa-plot--dark";
-          if (!flower) return <div key={cell} className={`naa-plot ${shade}`} />;
-
-          return (
+      <div className="naa-bed-wrap">
+        <div
+          className="naa-bed"
+          role="group"
+          aria-label={`Garden with ${flowers.length} flower${flowers.length === 1 ? "" : "s"}`}
+          onMouseLeave={() => setFocused(null)}
+        >
+          {ordered.map((flower) => (
             <button
-              key={`${cell}-${flower.plantedAt}`}
+              key={flower.id}
               type="button"
-              className={`naa-plot ${shade} naa-plot--planted`}
+              className="naa-flower"
               aria-label={`${flower.color} ${flower.species}, planted for “${flower.query}”`}
               onMouseEnter={() => setFocused(flower)}
               onFocus={() => setFocused(flower)}
               onBlur={() => setFocused(null)}
+              style={{
+                left: `${((flower.x + 0.5) / GRID_SIZE) * 100}%`,
+                top: `${((flower.y + 0.5) / GRID_SIZE) * 100}%`,
+                transform: `translate(-50%, -100%) rotate(${flower.tilt}deg) scale(${flower.scale})`,
+              }}
             >
-              <span
-                className="naa-flower"
-                style={{ transform: `rotate(${flower.tilt}deg) scale(${flower.scale})` }}
-              >
-                <FlowerSvg
-                  species={flower.species}
-                  color={PALETTE[flower.color]}
-                  animate={!reduceMotion && flower.plantedAt > mountedAt.current}
-                />
-              </span>
+              <FlowerSvg
+                species={flower.species}
+                color={PALETTE[flower.color]}
+                animate={!reduceMotion && flower.plantedAt > mountedAt.current}
+              />
             </button>
-          );
-        })}
+          ))}
+        </div>
       </div>
 
       <div className="naa-garden-foot">
